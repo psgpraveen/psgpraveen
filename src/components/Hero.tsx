@@ -7,21 +7,31 @@ import { motion, AnimatePresence } from "framer-motion";
 import AvatarModel from "@/components/AvatarModel";
 import * as THREE from "three";
 
-// Responsive hook to detect mobile/small screens
+// Hook to detect if device is mobile (phone)
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= breakpoint);
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
   }, [breakpoint]);
+
   return isMobile;
 }
 
+type SplitTextProps = {
+  text: string;
+  animationKey?: string | number;
+  fadeOut?: boolean;
+  onComplete?: () => void;
+  className?: string;
+};
+
 function SnowParticles() {
   const count = 300;
-  const mesh = useRef(null);
+  const mesh = useRef<THREE.Points | null>(null);
 
   const positions = useRef(
     new Float32Array(
@@ -41,24 +51,21 @@ function SnowParticles() {
       }
     }
     if (mesh.current) {
-      mesh.current.geometry.attributes.position.needsUpdate = true;
+      (mesh.current.geometry.attributes.position as THREE.BufferAttribute).needsUpdate = true;
     }
   });
 
   return (
     <points ref={mesh} frustumCulled={false}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions.current, 3]}
-        />
+        <bufferAttribute attach="attributes-position" args={[positions.current, 3]} />
       </bufferGeometry>
       <pointsMaterial color="white" size={0.1} sizeAttenuation />
     </points>
   );
 }
 
-function SplitText({ text, animationKey, fadeOut, onComplete, className }) {
+function SplitText({ text, animationKey, fadeOut, onComplete, className }: SplitTextProps) {
   return (
     <span className={className}>
       {text.split("").map((char, i) => (
@@ -89,11 +96,17 @@ function DestroyRecreateWord({
   delay = 1400,
   destroyTime = 900,
   recreateTime = 1800,
+}: {
+  text: string;
+  className?: string;
+  delay?: number;
+  destroyTime?: number;
+  recreateTime?: number;
 }) {
-  const [phase, setPhase] = useState("original");
+  const [phase, setPhase] = useState<"original" | "destroy" | "recreate">("original");
 
   useEffect(() => {
-    let destroyTimeout, recreateTimeout, resetTimeout;
+    let destroyTimeout: NodeJS.Timeout, recreateTimeout: NodeJS.Timeout, resetTimeout: NodeJS.Timeout;
 
     if (phase === "original") {
       destroyTimeout = setTimeout(() => setPhase("destroy"), delay);
@@ -131,10 +144,10 @@ export default function Hero() {
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const isMobile = useIsMobile();
 
-  // Only track mousemove on desktop
   useEffect(() => {
-    if (isMobile) return;
-    const handleMouseMove = (event) => {
+    if (isMobile) return; // Do not attach event on mobile
+console.log(cursor)
+    const handleMouseMove = (event: MouseEvent) => {
       const x = (event.clientX / window.innerWidth) * 2 - 1;
       const y = -(event.clientY / window.innerHeight) * 2 + 1;
       setCursor({ x, y });
@@ -170,10 +183,7 @@ export default function Hero() {
       </div>
 
       {/* 3D Canvas Layer */}
-      <div
-        className={`absolute inset-0 z-[55] ${isMobile ? "pointer-events-none cursor-none" : ""}`}
-        // You can use Tailwind's cursor-none and pointer-events-none utilities[3]
-      >
+      <div className="absolute inset-0 z-[55] pointer-events-none">
         <Canvas camera={{ position: [2, 2, 3], fov: 50 }} style={{ width: "100vw", height: "100vh" }}>
           <ambientLight intensity={0.7} color="#b6e0fe" />
           <directionalLight position={[3, 2, 1]} intensity={1.2} />
@@ -219,6 +229,7 @@ export default function Hero() {
             recreateTime={3000}
           />
         </motion.h2>
+
         <motion.p variants={fadeIn} className="text-base md:text-lg text-gray-300 max-w-xl mx-auto md:mx-0">
           🚀 Crafting intelligent systems, interactive web experiences, and seamless digital solutions. With a passion for modern tech and smart automation, I blend software with electronics to create meaningful impact.
         </motion.p>
