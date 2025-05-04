@@ -6,7 +6,7 @@ const page = async() => {
     let statusData = null;
 
     try {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/status`);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}status`);
       statusData = res.data[0];
     } catch (error) {
       statusData = null;
