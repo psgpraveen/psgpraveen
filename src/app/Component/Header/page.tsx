@@ -1,0 +1,44 @@
+"use client"
+import React from 'react'
+import Link from 'next/link'
+function index() {
+  return (
+   <>
+<nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+        <Link href="/port" className="flex items-center cursor-pointer space-x-3 rtl:space-x-reverse">
+            <img src='/images/psglogo' className="h-12 mix-blend-darken opacity-60" alt="Flowbite Logo" />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Psgpraveen</span>
+        </Link>
+        <div className="flex items-center space-x-6 rtl:space-x-reverse">
+            <a href="tel:7985942726" className="text-sm  text-gray-500 dark:text-white hover:underline">+91 7985942726</a>
+        </div>
+    </div>
+</nav>
+<nav className="bg-gray-50 dark:bg-gray-700 lg:mb-[5rem]">
+    <div className="max-w-screen-xl px-4 py-3 mx-auto">
+        <div className="flex items-center">
+            <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                <li>
+                    <a href="/port" className="text-gray-900 lg:text-xl dark:text-white hover:underline" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <Link href="/about" className="text-gray-900 lg:text-xl dark:text-white hover:underline">About</Link>
+                </li>
+                <li>
+                    <Link href="/project" className="text-gray-900 lg:text-xl dark:text-white hover:underline">Projects</Link>
+                </li>
+                <li>
+                    <Link href="/service" className="text-gray-900 lg:text-xl dark:text-white hover:underline">Service</Link>
+                </li>
+              
+            </ul>
+        </div>
+    </div>
+</nav>
+
+   </>
+  )
+}
+
+export default index
