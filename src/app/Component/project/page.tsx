@@ -23,7 +23,7 @@ const projects = [
     title: "FormBuilder",
     img: "https://www.svgrepo.com/show/217145/forms-document.svg",
     alt: "Form Builder Web Application",
-    url: "https://psgpraveen.vercel.app/",
+    url: "https://forms-creater.vercel.app/",
     github: "https://github.com/psgpraveen/FormBuilder",
   },
   {
