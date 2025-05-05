@@ -22,11 +22,11 @@ function index() {
                 <li>
                     <Link href="/" className="text-gray-900 lg:text-xl dark:text-white hover:underline" aria-current="page">Home</Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link href="/about" className="text-gray-900 lg:text-xl dark:text-white hover:underline">About</Link>
-                </li>
+                </li> */}
                 <li>
-                    <Link href="/project" className="text-gray-900 lg:text-xl dark:text-white hover:underline">Projects</Link>
+                    <Link href="/Project" className="text-gray-900 lg:text-xl dark:text-white hover:underline">Projects</Link>
                 </li>
                 <li>
                     <Link href="/service" className="text-gray-900 lg:text-xl dark:text-white hover:underline">Service</Link>
