@@ -264,7 +264,7 @@ console.log(cursor)
         {/* CTA Buttons */}
         <motion.div variants={fadeIn} className="flex gap-4 justify-center md:justify-start mt-6">
           <motion.a
-            href="#projects"
+            href="/Project"
             whileHover={{
               scale: 1.09,
               backgroundColor: "#2563eb",
@@ -276,7 +276,7 @@ console.log(cursor)
             View Projects
           </motion.a>
           <motion.a
-            href="/Praveen_CV_Web.pdf"
+            href="/Praveen CV_Web.pdf"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{

@@ -91,7 +91,7 @@ const Index = () => (
     <Head>
       <meta
         name="description"
-        content="Explore the whole collection of my projects and its show my skill and proficiency level"
+        content="Explore the whole collection text-white of my projects and its show my skill and proficiency level"
       />
       <link rel="canonical" href="https://webwalebhai.vercel.app/#project" />
     </Head>
@@ -103,7 +103,7 @@ const Index = () => (
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.2 } }}
             viewport={{ once: true }}
-            className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+            className="mb-4 text-4xl tracking-tight text-white font-extrabold text-gray-900 dark:text-white"
           >
             My Projects
           </motion.h2>
@@ -111,7 +111,7 @@ const Index = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
             viewport={{ once: true }}
-            className="font-light text-gray-500 sm:text-xl dark:text-gray-400"
+            className="font-light text-green-500 sm:text-xl dark:text-gray-400"
           >
             Explore the whole collection of my projects and its show my skill and proficiency level
           </motion.p>
