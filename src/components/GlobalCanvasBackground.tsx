@@ -66,7 +66,7 @@ export default function GlobalCanvasBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none">
+    <div className="fixed w-full inset-0 -z-10 pointer-events-none">
       <Canvas camera={{ position: [2, 2, 3], fov: 50 }}>
         <ambientLight intensity={2} color="#ffffff" /> {/* 💡 Increased */}
         <directionalLight position={[3, 2, 1]} intensity={1.5} />

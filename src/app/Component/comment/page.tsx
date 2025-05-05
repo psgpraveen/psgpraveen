@@ -113,7 +113,7 @@ const CommentSection = () => {
       <h2 className="text-3xl font-bold text-green-800 text-center mb-8">
         What People Say
       </h2>
-      <div className="relative flex flex-col items-center">
+      <div className="relative flex flex-col  overflow-hiddenitems-center">
         <div
           className="relative w-full flex justify-center overflow-hidden"
           style={{ minHeight: 210 }}
@@ -147,7 +147,7 @@ const CommentSection = () => {
                 }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="w-14 h-14 rounded-full bg-green flex items-center justify-center text-green-700 text-4xl mr-4 shadow">
+                  <div className="w-14 h-14 rounded-full bg-green  flex items-center justify-center text-green-700 text-4xl mr-4 shadow">
                     <FaUserCircle />
                   </div>
                   <div className="m-6">

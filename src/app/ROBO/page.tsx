@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <>
         <Header/>
-      <div className="w-full min-h-screen  py-6 lg:px-24 text-white">
+      <div className="w-full min-h-screen  p-6 lg:px-24 text-white">
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
