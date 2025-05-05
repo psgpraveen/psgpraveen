@@ -20,7 +20,7 @@ function index() {
         <div className="flex items-center">
             <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
                 <li>
-                    <a href="/" className="text-gray-900 lg:text-xl dark:text-white hover:underline" aria-current="page">Home</a>
+                    <Link href="/" className="text-gray-900 lg:text-xl dark:text-white hover:underline" aria-current="page">Home</Link>
                 </li>
                 <li>
                     <Link href="/about" className="text-gray-900 lg:text-xl dark:text-white hover:underline">About</Link>
