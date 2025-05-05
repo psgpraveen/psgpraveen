@@ -21,7 +21,7 @@ export default function HomePage() {
     "JavaScript Developer",
     "Web Developer India",
     "Freelance Developer",
-    "Hire Web Developer","Looking For Job","JOB","Software","Software Developer",
+    "Hire Web Developer","Looking For Job","JOB","Software","Software Developer","Than",
 
     // Portfolio & Services
     "Portfolio Website",
@@ -101,13 +101,29 @@ export default function HomePage() {
     ],
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Praveen Kumar Gupta",
+    "url": "https://psgpraveen.me",
+    "jobTitle": "Full Stack Developer",
+    "sameAs": [
+      "https://github.com/psgpraveen",
+      "https://linkedin.com/in/psgpraveen"
+    ]
+  };
+
   return (
     <>
       <Seo
-        title="Praveen Kumar Gupta — Full Stack Developer Portfolio"
+        title="psgpraveen"
         description="Portfolio of Praveen Kumar Gupta, featuring projects in Next.js, React, Node.js, and more, plus web development & SEO services."
         keywords={allKeywords}
         openGraph={openGraph}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       <main className="relative w-full min-h-screen bg-default text-colors_default">
