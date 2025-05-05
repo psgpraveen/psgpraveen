@@ -191,7 +191,7 @@ console.log(cursor)
           <Stars radius={100} depth={50} count={5000} factor={4} fade />
           <SnowParticles />
           <AvatarModel num={11} />
-          <AvatarModel num={12} position={[1.5, 0, 0]} scale={1} />
+         {isMobile ? " ": <AvatarModel num={12} position={[1.5, 0, 0]} scale={1} />}
         </Canvas>
       </div>
 
