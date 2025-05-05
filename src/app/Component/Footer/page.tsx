@@ -49,14 +49,14 @@ export default function Footer() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
-                href="/port"
+                href="/"
                 className="link link-hover text-white"
               >
                 Home
               </motion.a>
             </li>
             <li>
-              <Link href="/project" className="link link-hover text-white">
+              <Link href="/Project" className="link link-hover text-white">
                 Project
               </Link>
             </li>
