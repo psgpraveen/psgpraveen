@@ -1,21 +1,28 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState,useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Float, MeshDistortMaterial, Stars } from "@react-three/drei";
-import * as THREE from "three"; // ✅ Import the THREE namespace
+import * as THREE from "three"; 
 
 // Snow Particles Component
 function SnowParticles() {
-  const count = 300;
+  const count = 500;
   const mesh = useRef<THREE.Points>(null); 
 
-  const positions = useRef<Float32Array>( 
-    new Float32Array(
-      Array.from({ length: count * 3 }, (_, i) =>
-        i % 3 === 1 ? Math.random() * 20 + 5 : (Math.random() - 0.5) * 40
-      )
-    )
-  );
+  const initialPositions = useMemo(() => {
+    const arr = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      const x = (Math.random() - 0.5) * 40;
+const z = (Math.random() - 0.5) * 40;
+      const y = Math.random() * 20 + 5;
+      arr.set([x, y, z], i * 3);
+    }
+    return arr;
+  }, [count]);
+  
+  const positions = useRef<Float32Array>(initialPositions);
+  
+  
 
   useFrame(() => {
     const posArray = positions.current;
@@ -27,6 +34,8 @@ function SnowParticles() {
         posArray[y] = Math.random() * 20 + 10;
         posArray[i * 3 + 0] = (Math.random() - 0.5) * 40;
         posArray[i * 3 + 2] = (Math.random() - 0.5) * 40;
+        
+        
       }
     }
 
@@ -46,7 +55,7 @@ function SnowParticles() {
           args={[positions.current, 3]}  
         />
       </bufferGeometry>
-      <pointsMaterial color="white" size={0.1} sizeAttenuation />
+      <pointsMaterial color="red" size={0.15} sizeAttenuation />
     </points>
   );
 }
@@ -72,6 +81,7 @@ export default function GlobalCanvasBackground() {
         <directionalLight position={[3, 2, 1]} intensity={1.5} />
         <OrbitControls enableZoom={false} />
         <Stars radius={100} depth={50} count={5000} factor={4} fade />
+        <SnowParticles />
         <SnowParticles />
         <Float speed={2} rotationIntensity={2} floatIntensity={2}>
           <mesh
