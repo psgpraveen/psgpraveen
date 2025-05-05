@@ -14,7 +14,7 @@ const MyServices: React.FC = () => {
       description:
         "Explore my professional interior design website that showcases my design skills and portfolio. This website is built with full production readiness in mind, ensuring high performance and reliability.",
       urllink: "https://psgpraveen.github.io/interior-design/",
-      img: '/img1/image1.png',
+      img: "/img1/image1.png",
     },
     {
       title: "GHSC Government School",
@@ -38,7 +38,7 @@ const MyServices: React.FC = () => {
   }, [isHovered]);
 
   return (
-    <section className="py-16">
+    <section className="py-16" aria-label="My services and project showcase">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-white text-center mb-8">
           My Services
@@ -50,7 +50,7 @@ const MyServices: React.FC = () => {
           onMouseLeave={() => setIsHovered(false)}
         >
           {data.map((service, index) => (
-            <motion.div
+            <motion.article
               key={index}
               className={`flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8 transition-opacity duration-500 ease-in-out ${
                 index === currentIndex
@@ -64,6 +64,7 @@ const MyServices: React.FC = () => {
                   : { y: 0, opacity: 0 }
               }
               transition={{ duration: 0.5, delay: 0.2 }}
+              aria-label={`${service.title} project description`}
             >
               {/* Image */}
               <div className="w-full md:w-1/2">
@@ -97,13 +98,12 @@ const MyServices: React.FC = () => {
                 <h3 className="text-3xl font-semibold text-gray-800">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mt-4 mb-6">
-                  {service.description}
-                </p>
+                <p className="text-gray-600 mt-4 mb-6">{service.description}</p>
                 <a
                   href={service.urllink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`Visit ${service.title}`}
                   className="inline-block mt-6 px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-full shadow-md hover:bg-red-700 transition duration-300 transform hover:scale-105"
                 >
                   Visit Website
@@ -112,12 +112,13 @@ const MyServices: React.FC = () => {
                   This website is intended for production use.
                 </p>
               </motion.div>
-            </motion.div>
+            </motion.article>
           ))}
 
-          {/* Prev / Next Buttons */}
+          {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
+            aria-label="Previous project"
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <svg
@@ -136,6 +137,7 @@ const MyServices: React.FC = () => {
           </button>
           <button
             onClick={nextSlide}
+            aria-label="Next project"
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <svg

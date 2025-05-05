@@ -6,6 +6,7 @@ import { IoMdSend } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import Script from "next/script"; // for JSON-LD
 
 interface Comment {
   Name: string;
@@ -25,7 +26,7 @@ const CommentSection = () => {
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
   const [loading, setLoading] = useState(true);
-  const cardRef = useRef<HTMLDivElement>(null); // ✅ Properly typed ref
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -38,7 +39,7 @@ const CommentSection = () => {
         );
         setComments(sorted);
       } catch (e) {
-        console.log(e)
+        console.log(e);
         setComments([]);
       }
       setLoading(false);
@@ -63,29 +64,18 @@ const CommentSection = () => {
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim()) {
-      toast.error("Please enter your name.");
-      return;
-    }
-    if (!message.trim()) {
-      toast.error("Please enter your thoughts.");
-      return;
-    }
+    if (!name.trim()) return toast.error("Please enter your name.");
+    if (!message.trim()) return toast.error("Please enter your thoughts.");
+
     setSending(true);
     try {
-      await axios.post(`${API_URL}comment`, {
+      const commentData = {
         Name: name.trim(),
         comment: message.trim(),
         Time: new Date().toISOString(),
-      });
-      setComments([
-        {
-          Name: name.trim(),
-          comment: message.trim(),
-          Time: new Date().toISOString(),
-        },
-        ...comments,
-      ]);
+      };
+      await axios.post(`${API_URL}comment`, commentData);
+      setComments([commentData, ...comments]);
       setActiveIndex(0);
       setMessage("");
       toast.success("Your comment has been posted!");
@@ -108,15 +98,20 @@ const CommentSection = () => {
   };
 
   return (
-    <section className="py-12">
+    <section className="py-12" aria-labelledby="testimonials-heading">
       <Toaster position="top-center" />
-      <h2 className="text-3xl font-bold text-green-800 text-center mb-8">
+      <h2
+        id="testimonials-heading"
+        className="text-3xl font-bold text-green-800 text-center mb-8"
+      >
         What People Say
       </h2>
-      <div className="relative flex flex-col  overflow-hidden items-center">
+
+      <div className="relative flex flex-col overflow-hidden items-center">
         <div
           className="relative w-full flex justify-center overflow-hidden"
           style={{ minHeight: 210 }}
+          aria-live="polite"
         >
           <AnimatePresence mode="wait">
             {loading ? (
@@ -130,7 +125,7 @@ const CommentSection = () => {
                 Loading comments...
               </motion.div>
             ) : comments.length > 0 ? (
-              <motion.div
+              <motion.article
                 key={activeIndex}
                 ref={cardRef}
                 initial={{ x: 100, opacity: 0 }}
@@ -138,6 +133,7 @@ const CommentSection = () => {
                 exit={{ x: -100, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className="absolute w-full max-w-md mx-auto bg-gray rounded-lg p-6 text-white flex flex-col items-start shadow-lg"
+                aria-label={`Testimonial from ${comments[activeIndex].Name}`}
                 style={{
                   left: 0,
                   right: 0,
@@ -147,7 +143,7 @@ const CommentSection = () => {
                 }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="w-14 h-14 rounded-full bg-green  flex items-center justify-center text-green-700 text-4xl mr-4 shadow">
+                  <div className="w-14 h-14 rounded-full bg-green flex items-center justify-center text-green-700 text-4xl mr-4 shadow">
                     <FaUserCircle />
                   </div>
                   <div className="m-6">
@@ -160,7 +156,7 @@ const CommentSection = () => {
                   </div>
                 </div>
                 <p className="text-base">{comments[activeIndex].comment}</p>
-              </motion.div>
+              </motion.article>
             ) : (
               <motion.div
                 key="no-comments"
@@ -173,6 +169,7 @@ const CommentSection = () => {
             )}
           </AnimatePresence>
         </div>
+
         <div className="flex gap-2 mt-6">
           {comments.map((_, idx) => (
             <button
@@ -191,7 +188,11 @@ const CommentSection = () => {
         <h3 className="text-xl font-semibold text-green-700 mb-3">
           Add your comment
         </h3>
-        <form className="flex flex-col gap-3" onSubmit={handleSend}>
+        <form
+          className="flex flex-col gap-3"
+          onSubmit={handleSend}
+          aria-label="Comment form"
+        >
           <input
             type="text"
             className="p-2 rounded border border-green-300 focus:ring-2 focus:ring-green-500"
@@ -199,6 +200,7 @@ const CommentSection = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             disabled={sending}
+            aria-label="Your name"
           />
           <textarea
             rows={2}
@@ -207,6 +209,7 @@ const CommentSection = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             disabled={sending}
+            aria-label="Your comment"
           />
           <button
             type="submit"
@@ -247,6 +250,22 @@ const CommentSection = () => {
           </button>
         </form>
       </div>
+
+      {/* Structured Data for SEO */}
+      {comments.length > 0 && (
+        <Script id="testimonial-jsonld" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Comment",
+            "author": {
+              "@type": "Person",
+              "name": comments[activeIndex].Name,
+            },
+            "text": comments[activeIndex].comment,
+            "dateCreated": comments[activeIndex].Time,
+          })}
+        </Script>
+      )}
     </section>
   );
 };

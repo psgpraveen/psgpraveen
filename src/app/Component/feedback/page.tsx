@@ -17,9 +17,7 @@ export default function ContactForm() {
     if (mood !== 'neutral') {
       const t = setTimeout(() => setMood('neutral'), 1500);
       console.log(focusField);
-      
       return () => clearTimeout(t);
-
     }
   }, [mood]);
 
@@ -59,10 +57,11 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center py-10">
+    <main className="min-h-screen flex flex-col items-center justify-center py-10" aria-label="Contact Page">
       <Toaster position="top-center" />
       <div className="shadow-2xl rounded-3xl p-4 md:p-8 max-w-4xl w-full flex flex-col md:flex-row items-center gap-8">
-        <div className="w-full md:w-[360px] flex-shrink-0 flex items-center justify-center">
+        {/* 3D Model Section */}
+        <section className="w-full md:w-[360px] flex-shrink-0 flex items-center justify-center" aria-label="3D Assistant">
           <Canvas
             camera={{ position: [0, -0.7, 4], fov: 38 }}
             style={{ width: '100%', height: 420 }}
@@ -72,21 +71,24 @@ export default function ContactForm() {
             <AvatarModel num={7} />
             <OrbitControls enableZoom={false} enablePan={false} />
           </Canvas>
-        </div>
+        </section>
 
-        <div className="flex-1 w-full max-w-md">
+        {/* Contact Form Section */}
+        <section className="flex-1 w-full max-w-md" aria-label="Contact Form">
           <h1 className="text-3xl font-bold text-blue-800 mt-2 mb-1 text-center md:text-left">
             Let&apos;s Connect!
           </h1>
-          <p className="text-white-600 mb-6 text-center md:text-left max-w-md">
+          <p className="text-gray-600 mb-6 text-center md:text-left max-w-md">
             Have a question, idea, or just want to say hi? Fill out the form
             below and our friendly 3D assistant will keep you company while you
             type.
           </p>
+
           <form
             className="w-full space-y-6"
             onSubmit={handleSubmit}
             autoComplete="off"
+            aria-label="Contact Submission Form"
           >
             <div>
               <label
@@ -105,8 +107,10 @@ export default function ContactForm() {
                 onBlur={handleBlur}
                 placeholder="Your Name"
                 className="w-full p-3 text-black rounded-xl border border-blue-200 focus:ring-2 focus:ring-blue-400 bg-white/80 shadow-inner transition"
+                aria-required="true"
               />
             </div>
+
             <div>
               <label
                 htmlFor="email"
@@ -124,8 +128,10 @@ export default function ContactForm() {
                 onBlur={handleBlur}
                 placeholder="Your Email"
                 className="w-full p-3 text-black rounded-xl border border-blue-200 focus:ring-2 focus:ring-blue-400 bg-white/80 shadow-inner transition"
+                aria-required="true"
               />
             </div>
+
             <div>
               <label
                 htmlFor="msg"
@@ -143,8 +149,10 @@ export default function ContactForm() {
                 placeholder="Your Message"
                 rows={4}
                 className="w-full p-3 rounded-xl text-black border border-blue-200 focus:ring-2 focus:ring-blue-400 bg-white/80 shadow-inner transition"
+                aria-required="true"
               />
             </div>
+
             <button
               type="submit"
               className="w-full py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 transition duration-200 shadow-lg"
@@ -152,11 +160,12 @@ export default function ContactForm() {
               Send Message
             </button>
           </form>
+
           <div className="mt-6 text-xs text-gray-400 text-center md:text-left">
             We respect your privacy. Your information will never be shared.
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 }
