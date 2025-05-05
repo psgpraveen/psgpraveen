@@ -1,14 +1,19 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+// import the icons you need:
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-export default function Index() {
+export default function Footer() {
   return (
     <>
       <footer className="footer w-full p-6 md:p-10 bg-blue-400 text-black text-base-content flex flex-col md:flex-row md:justify-between items-center md:items-start space-y-8 md:space-y-0">
         {/* Contact Section */}
-        <section className="w-full md:w-1/3 flex flex-col items-center md:items-start" aria-label="Contact">
+        <section
+          className="w-full md:w-1/3 flex flex-col items-center md:items-start"
+          aria-label="Contact"
+        >
           <motion.h3
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -22,7 +27,10 @@ export default function Index() {
         </section>
 
         {/* Menu Section */}
-        <section className="w-full md:w-1/3 flex flex-col items-center md:items-start space-y-2" aria-label="Footer Navigation">
+        <section
+          className="w-full md:w-1/3 flex flex-col items-center md:items-start space-y-2"
+          aria-label="Footer Navigation"
+        >
           <motion.h4
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -61,13 +69,16 @@ export default function Index() {
         </section>
 
         {/* Social Section */}
-        <section className="w-full md:w-1/3 flex flex-col items-center md:items-start" aria-label="Social Links">
-          <h4 className="footer-title text-black underline mb-2">Social</h4>
+        <section
+          className="w-full md:w-1/3 flex flex-col items-center md:items-start"
+          aria-label="Social Links"
+        >
+          <h4 className="footer-title underline mb-2">Social</h4>
           <ul className="flex flex-row flex-wrap gap-4 justify-center md:justify-start list-none">
             {/* GitHub */}
-            <li>
+            <li className="h-5 w-6 z-88">
               <motion.a
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 1 }}
                 whileInView={{ opacity: 1 }}
                 whileHover={{ scale: 1.3 }}
                 whileTap={{ scale: 1.1 }}
@@ -77,16 +88,7 @@ export default function Index() {
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  className="bi bi-github cursor-pointer"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54..."></path>
-                </svg>
+                <FaGithub size={24} className="text-black cursor-pointer" />
               </motion.a>
             </li>
 
@@ -103,16 +105,7 @@ export default function Index() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="blue"
-                  className="bi bi-linkedin cursor-pointer"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16..."></path>
-                </svg>
+                <FaLinkedin size={24} className="text-blue-700 cursor-pointer" />
               </motion.a>
             </li>
 
@@ -129,16 +122,7 @@ export default function Index() {
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="blue"
-                  className="bi bi-twitter cursor-pointer"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M5.026 15c6.038 0 9.341-5.003..."></path>
-                </svg>
+                <FaTwitter size={24} className="text-blue-500 cursor-pointer" />
               </motion.a>
             </li>
 
@@ -155,16 +139,7 @@ export default function Index() {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="red"
-                  className="bi bi-instagram cursor-pointer"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8 0C5.829 0 5.556.01 4.703..."></path>
-                </svg>
+                <FaInstagram size={24} className="text-pink-500 cursor-pointer" />
               </motion.a>
             </li>
           </ul>
