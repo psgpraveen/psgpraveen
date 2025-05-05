@@ -113,7 +113,7 @@ const CommentSection = () => {
       <h2 className="text-3xl font-bold text-green-800 text-center mb-8">
         What People Say
       </h2>
-      <div className="relative flex flex-col  overflow-hiddenitems-center">
+      <div className="relative flex flex-col  overflow-hidden items-center">
         <div
           className="relative w-full flex justify-center overflow-hidden"
           style={{ minHeight: 210 }}

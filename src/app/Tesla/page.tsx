@@ -2,12 +2,12 @@
 import React,{useEffect} from "react";
 import {motion} from 'framer-motion'
 import Comment from '@/app/Component/comment/page'
-
+import Header from '@/app/Component/Header/page'
 const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [])
-  return (
+  return (<><Header/>
      <div id='tes' className="py-3 overflow-hidden"> 
       <motion.h1   initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -65,7 +65,8 @@ const Index = () => {
         </motion.video>
       </div>        <div className="w-full"><Comment/></div>
 
-    </div>
+    </div>  </>
+
   );
 };
 
