@@ -1,13 +1,13 @@
+'use client'
 import React ,{useEffect} from "react";
-import img from "./img/LDR.png";
-import video from "./img/LDR.mp4";
-import Comment from "../comment/index.js";
+import Comment from "@/app/Component/comment/page";
+import Header from "@/app/Component/Header/page";
 
 const Index = () => {
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top when component mounts
+    window.scrollTo(0, 0); 
   }, [])
-  return (
+  return (<><Header/>
     <div id="ldr" className="mt-2 p-8 lg:p-16">
       <img
         className="mx-auto border-black border-3 rounded-5"
@@ -34,7 +34,7 @@ const Index = () => {
       </div>
       <h3 className="text-center font-bold text-black">Circuit Diagram</h3>
       <img
-        alt= "Image1" src={img}
+        alt= "Image1" src={"/img/LDR.png"}
         className="h-60  my-4 w-fit mx-auto drop-shadow-md rounded"
       />
       <h3 className="text-center font-bold text-black text-xl">
@@ -45,13 +45,13 @@ const Index = () => {
         autoPlay
         muted
         controls>
-        <source alt= "Image2" src={video} type="video/mp4" />
+        <source src={"/img/LDR.mp4"} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="w-full">
         <Comment />
       </div>
-    </div>
+    </div></>
   );
 };
 

@@ -65,7 +65,7 @@ const projects = [
     title: "Robotic Arm",
     img: "/img/ROBOTIC ICON.png",
     alt: "Robotic Arm IoT Project",
-    url: "/Robot",
+    url: "/ROBO",
     github: "",
   },
   {
