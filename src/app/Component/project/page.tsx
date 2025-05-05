@@ -160,7 +160,7 @@ const Index = () => (
                 </a>
               )}
 
-              <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h3 className="mb-1 text-2xl font-bold tracking-tight text-green-400">
                 {isInternal(project.url) ? (
                   <Link href={project.url}>{project.title}</Link>
                 ) : (
