@@ -72,14 +72,14 @@ const projects = [
     title: "Wireless Electric Transmission (Tesla Coil)",
     img: "/img/tesla-coil.jpg",
     alt: "Wireless Electricity Tesla Coil Project",
-    url: "/tesla",
+    url: "/Tesla",
     github: "",
   },
   {
     title: "Street Light",
     img: "/img/Ldr icone.png",
     alt: "Automatic Street Light Using LDR",
-    url: "/ldr",
+    url: "/Ldr",
     github: "",
   },
 ];

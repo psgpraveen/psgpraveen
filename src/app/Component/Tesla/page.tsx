@@ -1,9 +1,7 @@
+'use client'
 import React,{useEffect} from "react";
-import circuit from "./img/Inkedtesla-circuits.jpg";
-import tesla2 from "./img/tesla2.mp4";
 import {motion} from 'framer-motion'
-import tesla3 from "./img/Tesla3.mp4";
-import Comment from '../comment/index.js'
+import Comment from '@/app/Component/comment/page'
 
 const Index = () => {
   useEffect(() => {
@@ -42,7 +40,7 @@ const Index = () => {
           whileInView={{ y: 0, opacity: 1 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 1.1 }}
-          transition={{ duration: 0.5 }}src={circuit} className="px-56 py-16" alt="Circuit" />
+          transition={{ duration: 0.5 }} src={"/img/Inkedtesla-circuits.jpg"} className="px-56 py-16" alt="Circuit" />
       <motion.h2  initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           whileHover={{ scale: 1.05 }}
@@ -54,7 +52,7 @@ const Index = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 1.1 }}
           transition={{ duration: 0.5 }} viewport={{once:true}} className="h-80 border-black drop-shadow-md mb-4  lg:mb-0 rounded-lg border-3" autoPlay muted controls>
-          <source src={tesla2} type="video/mp4" />
+          <source src={'/img/tesla2.mp4'} type="video/mp4" />
           Your browser does not support the video tag.
         </motion.video>
         <motion.video  initial={{ y: 50, opacity: 0 }}
@@ -62,7 +60,7 @@ const Index = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 1.1 }}
           transition={{ duration: 0.5 }} viewport={{once:true}}className="h-80 border-3 rounded-lg drop-shadow-md border-black" autoPlay muted controls>
-          <source src={tesla3} type="video/mp4" />
+          <source src={"/img/Tesla3.mp4"} type="video/mp4" />
           Your browser does not support the video tag.
         </motion.video>
       </div>        <div className="w-full"><Comment/></div>
