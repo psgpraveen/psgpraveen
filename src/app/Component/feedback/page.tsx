@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import toast, { Toaster } from 'react-hot-toast';
@@ -43,7 +44,7 @@ export default function ContactForm() {
     return '';
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const error = validate();
     if (error) {
@@ -51,6 +52,11 @@ export default function ContactForm() {
       toast.error(error);
     } else {
       setMood('happy');
+      await axios.post(`${process.env.NEXT_PUBLIC_URL}` || "http://localhost:5000/", {
+        msg: form.msg,
+        email: form.email,
+        name: form.name,
+      });
       toast.success("Message sent! We'll get back to you soon.");
       setForm({ name: '', email: '', msg: '' });
     }
