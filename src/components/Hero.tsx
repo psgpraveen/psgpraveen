@@ -222,12 +222,53 @@ console.log(cursor)
           />{" "}
           |{" "}
           <DestroyRecreateWord
-            text="Electronics_Engineer"
+            text="Technophild"
             className="inline-block"
             delay={5000}
             destroyTime={2100}
-            recreateTime={3000}
+            recreateTime={5000}
           />
+          {" "}
+          <DestroyRecreateWord
+            text="Mechatronician"
+            className="inline-block"
+            delay={5000}
+            destroyTime={2100}
+            recreateTime={6000}
+            />
+            {" "}<br/>
+          {" "}
+          {" "}
+          <DestroyRecreateWord
+            text="Innovator"
+            className="inline-block"
+            delay={5000}
+            destroyTime={2100}
+            recreateTime={5000}
+          />
+          {" "}
+        
+          {" "}
+          <DestroyRecreateWord
+            text="Automator"
+            className="inline-block"
+            delay={5000}
+            destroyTime={2100}
+            recreateTime={6000}
+          />
+          {" "}
+          {" "}
+          <DestroyRecreateWord
+            text="Techie"
+            className="inline-block"
+            delay={5000}
+            destroyTime={2100}
+            recreateTime={5000}
+          />
+          {" "}
+          {" "}
+        
+         
         </motion.h2>
 
         <motion.p variants={fadeIn} className="text-base md:text-lg text-gray-300 max-w-xl mx-auto md:mx-0">
@@ -243,7 +284,6 @@ console.log(cursor)
             "MongoDB",
             "TypeScript",
             "IoT",
-            "Three.js",
           ].map((tech) => (
             <motion.span
               key={tech}
