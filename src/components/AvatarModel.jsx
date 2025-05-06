@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
 
 // Preload models for faster switching
-useGLTF.preload('/models/model (1).glb');
+useGLTF.preload('/models/model (7).glb');
 useGLTF.preload('/models/model (11).glb');
 useGLTF.preload('/models/model (12).glb');
 // Add more as needed

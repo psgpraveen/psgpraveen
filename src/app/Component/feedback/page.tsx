@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import toast, { Toaster } from 'react-hot-toast';
-const AvatarModel = React.lazy(() => import('@/components/AvatarModel'));
+import AvatarModel from '@/components/AvatarModel';
 
 type FocusField = 'name' | 'email' | 'msg' | null;
 
@@ -62,17 +62,15 @@ export default function ContactForm() {
       <div className="shadow-2xl rounded-3xl p-4 md:p-8 max-w-4xl w-full flex flex-col md:flex-row items-center gap-8">
         {/* 3D Model Section */}
         <section className="w-full md:w-[360px] flex-shrink-0 flex items-center justify-center" aria-label="3D Assistant">
-          <Suspense fallback={<div className="flex items-center justify-center w-full h-[420px]">Loading 3D...</div>}>
-            <Canvas
-              camera={{ position: [0, -0.7, 4], fov: 38 }}
-              style={{ width: '100%', height: 420 }}
-            >
-              <ambientLight intensity={0.7} />
-              <directionalLight position={[2, 2, 2]} intensity={1} />
-              <AvatarModel num={7} />
-              <OrbitControls enableZoom={false} enablePan={false} />
-            </Canvas>
-          </Suspense>
+          <Canvas
+            camera={{ position: [0, -0.7, 4], fov: 38 }}
+            style={{ width: '100%', height: 420 }}
+          >
+            <ambientLight intensity={0.7} />
+            <directionalLight position={[2, 2, 2]} intensity={1} />
+            <AvatarModel num={7} />
+            <OrbitControls enableZoom={false} enablePan={false} />
+          </Canvas>
         </section>
 
         {/* Contact Form Section */}
