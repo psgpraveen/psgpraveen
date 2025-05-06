@@ -20,7 +20,7 @@ const robotoMono = Roboto_Mono({
 
 // Next.js built‑in metadata
 export const metadata: Metadata = {
-  title: "Praveen | Portfolio",
+  title: "psgpraveen ",
   description: "Praveen Kumar Gupta — Full Stack Developer. View projects in Next.js, React, Node.js, and more.",
   keywords: [
     "Praveen Kumar Gupta",
@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     "psgpraveen.me",
   ],
   openGraph: {
-    title: "Praveen | Portfolio",
+    title: "psgpraveen",
     description: "Portfolio of Praveen Kumar Gupta — Next.js, React, Node.js projects and services.",
     url: "https://psgpraveen.me",
     type: "website",
     images: [
       {
-        url: "https://psgpraveen.me/og-image.png",
+        url: "https://psgpraveen.me/images/psglogo.png",
         width: 1200,
         height: 630,
         alt: "Praveen Kumar Gupta Portfolio",
