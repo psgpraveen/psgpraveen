@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import AvatarModel from "@/components/AvatarModel";
 import * as THREE from "three";
 
@@ -143,15 +144,16 @@ function DestroyRecreateWord({
 export default function Hero() {
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const isMobile = useIsMobile();
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   useEffect(() => {
     if (isMobile) return; // Do not attach event on mobile
-console.log(cursor)
     const handleMouseMove = (event: MouseEvent) => {
       const x = (event.clientX / window.innerWidth) * 2 - 1;
       const y = -(event.clientY / window.innerHeight) * 2 + 1;
       setCursor({ x, y });
     };
+    console.log("Cursor position:", cursor);
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [isMobile]);
@@ -176,24 +178,32 @@ console.log(cursor)
   };
 
   return (
-    <section className="relative h-screen w-full text-white flex items-center justify-center p-6">
+    <section ref={ref} className="relative h-screen w-full text-white flex items-center justify-center p-6">
       {/* Soft glowing overlay */}
       <div className="absolute inset-0 z-40 pointer-events-none">
         <div className="w-full h-full bg-gradient-to-br from-blue-900/40 via-transparent to-yellow-200/10 blur-2xl" />
       </div>
 
-      {/* 3D Canvas Layer */}
-      <div className="absolute inset-0 z-[55] pointer-events-none">
-        <Canvas camera={{ position: [2, 2, 3], fov: 50 }} style={{ width: "100vw", height: "100vh" }}>
-          <ambientLight intensity={0.7} color="#b6e0fe" />
-          <directionalLight position={[3, 2, 1]} intensity={1.2} />
-          <OrbitControls enableZoom={false} enabled={!isMobile} />
-          <Stars radius={100} depth={50} count={5000} factor={4} fade />
-          <SnowParticles />
-         
-         {isMobile ? " ":<>  <AvatarModel num={11} /><AvatarModel num={12} position={[1.5, 0, 0]} scale={1} /></>}
-        </Canvas>
-      </div>
+      {/* 3D Canvas Layer - Lazy load with Suspense */}
+      {inView && (
+        <div className="absolute inset-0 z-[55] pointer-events-none">
+          <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center text-lg">Loading 3D...</div>}>
+            <Canvas camera={{ position: [2, 2, 3], fov: 50 }} style={{ width: "100vw", height: "100vh" }}>
+              <ambientLight intensity={0.7} color="#b6e0fe" />
+              <directionalLight position={[3, 2, 1]} intensity={1.2} />
+              <OrbitControls enableZoom={false} enabled={!isMobile} />
+              <Stars radius={100} depth={50} count={5000} factor={4} fade />
+              <SnowParticles />
+              {isMobile ? " " : (
+                <>
+                  <AvatarModel num={11} />
+                  <AvatarModel num={12} position={[1.5, 0, 0]} scale={1} />
+                </>
+              )}
+            </Canvas>
+          </Suspense>
+        </div>
+      )}
 
       {/* Text Section */}
       <motion.div

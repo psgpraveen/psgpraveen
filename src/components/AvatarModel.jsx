@@ -1,8 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
 
+// Preload models for faster switching
+useGLTF.preload('/models/model (1).glb');
+useGLTF.preload('/models/model (11).glb');
+useGLTF.preload('/models/model (12).glb');
+// Add more as needed
+
 export default function AvatarModel(props) {
-    const { num, scale = 1.3, position = [0, -1.1, 0], ...rest } = props; // Destructure props with defaults
+    const { num, scale = 1.3, position = [0, -1.1, 0], ...rest } = props;
     const group = useRef();
     const { scene, animations } = useGLTF(`/models/model (${num}).glb`);
     const { actions } = useAnimations(animations, group);
