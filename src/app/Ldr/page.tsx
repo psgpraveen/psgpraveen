@@ -283,7 +283,7 @@ const Index = () => {
           <option value="hi">हिन्दी</option>
         </select>
       </div>
-      <div id="ldr" className="mt-2 p-8 lg:p-16 bg-black min-h-screen">
+      <div id="ldr" className="mt-2 p-8 lg:p-16 min-h-screen">
         <img
           className="mx-auto border-2 border-gray-700 rounded-md"
           alt="Animated LDR Preview"
