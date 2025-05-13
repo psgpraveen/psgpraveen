@@ -21,6 +21,7 @@ const robotoMono = Roboto_Mono({
 // Next.js built‑in metadata
 export const metadata: Metadata = {
   title: "psgpraveen ",
+  
   description: "Praveen Kumar Gupta — Full Stack Developer. View projects in Next.js, React, Node.js, and more.",
   keywords: [
     "Praveen Kumar Gupta",
@@ -511,6 +512,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   strategy="afterInteractive"
   crossOrigin="anonymous"
 />
+<meta name="google-adsense-account" content="ca-pub-8510113161583635"></meta>
         {/* Google Analytics (GA4) */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
