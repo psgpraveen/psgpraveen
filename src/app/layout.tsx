@@ -507,11 +507,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
       <head>
-      <Script
+      {/* <Script
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8510113161583635"
   strategy="afterInteractive"
   crossOrigin="anonymous"
-/>
+/> */}
 <meta name="google-adsense-account" content="ca-pub-8510113161583635"></meta>
         {/* Google Analytics (GA4) */}
         <Script
