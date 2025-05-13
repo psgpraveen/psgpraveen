@@ -535,7 +535,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           image='/images/psglogo.png'
           author="Praveen Kumar Gupta"
         />
-        <meta name="keywords" content={(metadata.keywords ?? []).join(', ')} />
+        <meta name="keywords" content={allKeywords.join(', ')} />
       </head>
       <body className="antialiased">
         <div className="relative min-h-screen">
