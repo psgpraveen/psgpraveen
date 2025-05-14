@@ -222,7 +222,7 @@ console.log(cursor)
           />{" "}
           |{" "}
           <DestroyRecreateWord
-            text="Technophild"
+            text="Technophile"
             className="inline-block"
             delay={5000}
             destroyTime={2100}
