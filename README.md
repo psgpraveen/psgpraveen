@@ -57,7 +57,6 @@ Update badges, project links, and stats URLs as you earn new skills.
 | 🌐 Portfolio | <a href="https://psgpraveen.me">psgpraveen.me</a> |
 | 💼 LinkedIn | <a href="https://linkedin.com/in/psgpraveen">linkedin.com/in/psgpraveen</a> |
 | 📧 Email | psgpraveen08@gmail.com |
-| ☕ Buy Me a Coffee | <a href="https://www.buymeacoffee.com/psgpraveen">buymeacoffee.com/psgpraveen</a> |
 
 ---
 
