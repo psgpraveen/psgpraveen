@@ -14,11 +14,21 @@
 
 ---
 
-### 📈 GitHub Stats
+
+### 📊 GitHub Contribution Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=psgpraveen&show_icons=true&theme=react&count_private=true" height="165" />
-  <img src="https://streak-stats.demolab.com?user=psgpraveen&theme=react&hide_border=true" height="165" />
+  <a href="https://github.com/psgpraveen">
+    <img src="https://github-readme-stats.vercel.app/api?username=psgpraveen&show_icons=true&count_private=true&theme=react&hide_title=true" height="165" />
+  </a>
+  <a href="https://github.com/psgpraveen">
+    <img src="https://streak-stats.demolab.com?user=psgpraveen&theme=react&hide_border=true" height="165" />
+  </a>
+</p>
+
+<!-- Optional Trophy Card -->
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=psgpraveen&theme=onestar&no-bg=true&no-frame=true&column=4" />
 </p>
 
 ---
