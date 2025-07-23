@@ -15,7 +15,7 @@ Update badges, project links, and stats URLs as you earn new skills.
 ---
 
 ### 🔭 Current Focus
-- **Project:** <a href="https://github.com/psgpraveen/https://intelligent-living-i-ot-system.vercel.app">Smart Appliance Monitoring &amp; Control</a> – ESP32&nbsp;+&nbsp;AWS&nbsp;IoT&nbsp;Core backend with a Next.js dashboard.  
+- **Project:** <a href="https://github.com/psgpraveen/Intelligent-Living-IoT-System">Smart Appliance Monitoring &amp; Control</a> – ESP32&nbsp;+&nbsp;AWS&nbsp;IoT&nbsp;Core backend with a Next.js dashboard.  
 - **Learning:** Preparing for the <img src="https://img.shields.io/badge/AWS-Cloud%20Practitioner-orange?logo=amazon-aws&logoColor=white" alt="AWS CCP badge"> exam _(target date: Oct 2025)_.
 
 ### 🌱 Technical Skill-Set
