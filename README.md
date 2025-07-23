@@ -55,7 +55,6 @@
   <img src="https://github-readme-stats.vercel.app/api?username=psgpraveen&show_icons=true&theme=react&count_private=true" alt="GitHub Stats" height="160"/>
   <img src="https://streak-stats.demolab.com?user=psgpraveen&theme=react&hide_border=true" alt="GitHub Streak" height="160"/>
 </p>
-
 ---
 
 ### 🤝 Let’s Connect
@@ -64,7 +63,6 @@
 | 🌐 Portfolio  | <a href="https://psgpraveen.me">psgpraveen.me</a>           |
 | 💼 LinkedIn   | <a href="https://linkedin.com/in/psgpraveen">linkedin.com/in/psgpraveen</a> |
 | 📧 Email      | <a href="mailto:psgpraveen08@gmail.com">psgpraveen08@gmail.com</a> |
-| ☕ Buy Me a Coffee | <a href="https://www.buymeacoffee.com/psgpraveen">buymeacoffee.com/psgpraveen</a> |
 
 ---
 
