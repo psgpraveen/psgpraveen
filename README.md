@@ -53,7 +53,8 @@
 ---
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=psgpraveen&show_icons=true&theme=react&count_private=true" alt="GitHub Stats" height="160"/>
-<a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=psgpraveen" alt="GitHub Streak" /></a></p>
+<img src="https://streak-stats.demolab.com?user=psgpraveen&theme=react&hide_border=true" alt="GitHub Streak Stats">
+</p>
 
 
 ### 🤝 Let’s Connect
