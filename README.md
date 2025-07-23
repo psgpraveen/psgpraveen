@@ -20,6 +20,7 @@
   <img src="https://github-readme-stats.vercel.app/api?username=psgpraveen&show_icons=true&theme=react&count_private=true" height="165" />
   <img src="https://streak-stats.demolab.com?user=psgpraveen&theme=react&hide_border=true" height="165" />
 </p>
+---
 ### 🔭 Current Focus
 - **Project:** [Smart Appliance Monitoring & Control](https://github.com/psgpraveen/Smart-Appliance-IoT)  
   ESP32 → AWS IoT Core → Next.js dashboard  
