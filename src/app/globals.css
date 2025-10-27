@@ -16,14 +16,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   @apply -z-9;
-  @apply min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white;
+  @apply min-h-screen  text-black bg-gradient-to-b from-white to-blue-50;
 }

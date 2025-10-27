@@ -83,6 +83,83 @@ export default function HomePage() {
     "LDR Sensor Project",
     "Performance Monitoring",
     "Web Performance",
+
+    // Website Builder Specific Keywords
+    "Website Builder Expert",
+    "Custom Website Development",
+    "Business Website Developer",
+    "E-commerce Website Builder",
+    "WordPress Development",
+    "Shopify Expert",
+    "Small Business Websites",
+    "Website Builder for Startups",
+    "Local Business Website Design",
+    "Affordable Website Developer",
+    "Website Builder Near Me",
+    "Website Maintenance Services",
+    "Custom Web Design Solutions",
+    "Professional Website Services",
+    "Website Redesign Specialist",
+    "Landing Page Development",
+
+    // Location Keywords
+    "Website Developer in Varanasi",
+    "Web Designer in Ayodhya",
+    "Website Builder Varanasi",
+    "SEO Services Ayodhya",
+    "Uttar Pradesh Web Developer",
+    "Website Development Varanasi",
+    "Ayodhya Website Design",
+    "E-commerce Website Varanasi",
+    "Business Website Ayodhya",
+    "Local Web Developer UP",
+    "Website Services Prayagraj",
+    "Web Design Lucknow",
+    "Affordable Website Varanasi",
+    "UP Tech Services",
+    "Banaras Web Development",
+
+    // India-Wide Keywords
+    "Indian Web Developer",
+    "Top Developer India",
+    "Website Development India",
+    "Full Stack Developer India",
+    "E-commerce Website India",
+    "React Developer India",
+    "Next.js Expert India",
+    "Remote Web Developer India",
+    "Technology Consultant India",
+    "Web Services Delhi",
+    "Website Design Mumbai",
+    "Web Developer Bangalore",
+    "SEO Services India",
+
+    // Global Keywords
+    "International Web Developer",
+    "Offshore Development Services",
+    "Remote Developer for Hire",
+    "Global Web Solutions",
+    "Cross-border Web Development",
+    "International E-commerce Developer",
+    "Worldwide Web Services",
+    "Virtual Developer Team",
+    "Remote Tech Partner",
+    "Outsource Web Development",
+    "English-Speaking Developer",
+    "Time Zone Friendly Developer",
+    "Global Tech Solutions",
+
+    // Remote Work Keywords
+    "Remote Web Developer",
+    "Freelance Next.js Developer",
+    "Work From Home Developer",
+    "Virtual Web Development",
+    "Hire Remote Developer",
+    "Freelance Web Services",
+    "Online Web Developer",
+    "Remote Tech Talent",
+    "Distance Web Development",
+    "Distributed Team Developer",
   ];
 
   const openGraph = {
@@ -93,10 +170,10 @@ export default function HomePage() {
     type: "website" as const,
     images: [
       {
-        url: "https://psgpraveen.me/favicon.ico",
+        url: "https://psgpraveen.me/images/psglogo.png", 
         width: 1200,
         height: 630,
-        alt: "Praveen Kumar Gupta Portfolio",
+        alt: "Praveen Kumar Gupta - Full Stack Developer",
       },
     ],
   };
@@ -106,18 +183,58 @@ export default function HomePage() {
     "@type": "Person",
     "name": "Praveen Kumar Gupta",
     "url": "https://psgpraveen.me",
-    "jobTitle": "Full Stack Developer",
+    "jobTitle": "Remote Full Stack Developer & Website Builder",
+    "description": "Professional freelance website developer specializing in custom web solutions for global clients. Expert in Next.js, React & modern web technologies with SEO optimization.",
+    "knowsAbout": ["Website Development", "E-commerce", "Business Websites", "Web Design", "SEO"],
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Website Building Services",
+        "description": "Custom website development for businesses with modern technologies"
+      }
+    },
     "sameAs": [
       "https://github.com/psgpraveen",
       "https://linkedin.com/in/psgpraveen"
-    ]
+    ],
+    "workLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Varanasi",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "India"
+      },
+      "areaServed": [
+        // Local regions
+        "Varanasi", "Ayodhya", "Prayagraj", "Lucknow", 
+        // Major Indian cities
+        "Delhi", "Mumbai", "Bangalore", "Hyderabad", "Chennai", "Kolkata", 
+        // Countries/regions
+        "India", "United States", "United Kingdom", "Europe", "Australia", "Canada", 
+        "UAE", "Singapore", "Global"
+      ]
+    },
+    "availableFor": ["Remote Work", "Freelance Projects", "Contract Work"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-XXXXXXXXXX",
+      "contactType": "customer service",
+      "availableLanguage": ["en", "hi"]
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance",
+      "description": "Independent web development services"
+    }
   };
 
   return (
     <>
       <Seo
-        title="psgpraveen"
-        description="Portfolio of Praveen Kumar Gupta, featuring projects in Next.js, React, Node.js, and more, plus web development & SEO services."
+        title="psgpraveen | Remote Full Stack Developer & Website Builder"
+        description="Professional freelance web developer specializing in Next.js, React, and modern web development. Providing remote services for businesses worldwide with SEO optimization."
         keywords={allKeywords}
         openGraph={openGraph}
       />
@@ -126,7 +243,44 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main className="relative w-full min-h-screen bg-default text-colors_default">
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What web development services do you offer?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "I offer custom website development, e-commerce solutions, web applications, SEO optimization, and website maintenance services."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you serve clients outside of Varanasi and Ayodhya?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, I work with clients across India and internationally, providing remote web development services."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What technologies do you specialize in?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "I specialize in Next.js, React, Node.js, Express, MongoDB, and modern web technologies including Tailwind CSS."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      <main className="relative w-full min-h-screen bg-default text-black dark:text-white overflow-x-hidden">
         <Hero />
         <Card />
         <Status />
