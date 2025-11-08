@@ -6,31 +6,37 @@ import Header from '@/app/Component/Header/page';
 import Footer from '@/app/Component/Footer/page';
 import Seo from '@/components/Seo';
 import Head from 'next/head';
+import Script from 'next/script';
 
 const BlogSmartphoneRoboticArm = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const canonicalUrl = "https://example.com/smartphone-controlled-robotic-arm";
+  const canonicalUrl = "https://psgpraveen.me/ROBO";
   const metadata = {
-    description: "In-depth guide to designing, building, and programming a smartphone-controlled robotic arm with Arduino. Learn about hardware, software, circuit diagrams, code, and real-world applications for automation, education, and DIY projects.",
+    description: "Comprehensive guide to building a smartphone-controlled programmable robotic arm with Arduino. Learn hardware design, circuit diagrams, Arduino programming, and real-world robotics applications for automation, education, and DIY projects.",
     keywords: [
       'Smartphone Controlled Robotic Arm',
-      '4 DOF Arm',
-      'Arduino Robotics',
-      'Robotics Project',
+      '4 DOF Robotic Arm',
+      'Arduino Robotics Tutorial',
+      'Robotics Project Guide',
       'Bluetooth Controlled Robotic Arm',
-      'Automation',
-      'DIY Robotics',
-      'STEM Projects',
-      'Mechatronics',
-      'Arduino Code',
-      'Robotic Arm Tutorial',
-      'Electronics Project',
-      'Embedded Systems',
-      'IoT Robotics',
-      'Open Source Hardware',
+      'Industrial Automation',
+      'DIY Robotics Project',
+      'STEM Education Projects',
+      'Mechatronics Engineering',
+      'Arduino Code Examples',
+      'Robotic Arm Circuit Diagram',
+      'Electronics Engineering Project',
+      'Embedded Systems Tutorial',
+      'IoT Robotics Application',
+      'Open Source Hardware Project',
+      'Programmable Robotic Arm',
+      'Wireless Robot Control',
+      'Arduino Motor Control',
+      'Robotics for Beginners',
+      'Educational Robotics',
     ],
   };
 
@@ -42,27 +48,139 @@ const BlogSmartphoneRoboticArm = () => {
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={(metadata.keywords ?? []).join(', ')} />
       </Head>
+      
       <Seo
-        title="Smartphone Controlled Programmable Robotic Arm – Project Blog"
+        title="Smartphone Controlled Programmable Robotic Arm – Arduino Project Tutorial"
         description={metadata.description}
         keywords={metadata.keywords}
       />
+
+      {/* Structured Data for SEO */}
+      <Script id="robo-article-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Smartphone Controlled Programmable Robotic Arm Project",
+          "description": metadata.description,
+          "image": "https://psgpraveen.me/ArmCircuit.jpg",
+          "author": {
+            "@type": "Person",
+            "name": "Praveen Kumar Gupta",
+            "url": "https://psgpraveen.me"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Praveen Kumar Gupta",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://psgpraveen.me/images/psglogo.png"
+            }
+          },
+          "datePublished": "2023-01-01",
+          "dateModified": new Date().toISOString(),
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl
+          },
+          "keywords": metadata.keywords.join(", ")
+        })}
+      </Script>
+
+      {/* HowTo Schema */}
+      <Script id="robo-howto-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to Build a Smartphone Controlled Robotic Arm",
+          "description": "Step-by-step guide to building a programmable robotic arm controlled via smartphone",
+          "image": "https://psgpraveen.me/ArmCircuit.jpg",
+          "totalTime": "PT8H",
+          "estimatedCost": {
+            "@type": "MonetaryAmount",
+            "currency": "USD",
+            "value": "100"
+          },
+          "tool": [
+            {
+              "@type": "HowToTool",
+              "name": "Arduino Uno"
+            },
+            {
+              "@type": "HowToTool",
+              "name": "Bluetooth Module HC-05"
+            },
+            {
+              "@type": "HowToTool",
+              "name": "Motor Driver Shield L293D"
+            }
+          ],
+          "supply": [
+            {
+              "@type": "HowToSupply",
+              "name": "4 Gear Motors"
+            },
+            {
+              "@type": "HowToSupply",
+              "name": "Robotic Arm Frame"
+            }
+          ],
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Circuit Assembly",
+              "text": "Connect the Arduino Uno, motor driver shield, Bluetooth module, and four gear motors according to the circuit diagram",
+              "url": canonicalUrl + "#circuit"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Upload Arduino Code",
+              "text": "Program the Arduino with the provided code to control motor movements via Bluetooth commands",
+              "url": canonicalUrl + "#code"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Configure Mobile App",
+              "text": "Set up the smartphone app and pair it with the Bluetooth module for wireless control",
+              "url": canonicalUrl + "#app"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Testing",
+              "text": "Test each joint's movement and calibrate for smooth operation",
+              "url": canonicalUrl + "#testing"
+            }
+          ]
+        })}
+      </Script>
+
       <Header />
-      <article className="w-full min-h-screen p-6 lg:px-24 text-white max-w-4xl mx-auto">
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <motion.img
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 1.1 }}
-            src="https://sklc-tinymce-2021.s3.amazonaws.com/2020/10/robot-kol-animasyon_1602321157.gif"
-            alt="Smartphone Controlled Robotic Arm Animation"
-            className="mx-auto max-h-56 rounded-xl mix-blend-lighten shadow-lg"
-          />
-        </motion.div>
+      <article className="relative w-full min-h-screen py-12 px-4 sm:px-6 lg:px-24 max-w-6xl mx-auto">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-40 -z-10"></div>
+        
+        <div className="relative z-10 bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-6 sm:p-10 lg:p-16 border border-gray-100">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            {/* Badge */}
+            <span className="inline-flex items-center bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 text-sm font-semibold px-4 py-2 rounded-full mb-6 shadow-sm">
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+              Arduino Robotics Project
+            </span>
+
+            <motion.img
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              src="https://sklc-tinymce-2021.s3.amazonaws.com/2020/10/robot-kol-animasyon_1602321157.gif"
+              alt="Smartphone Controlled Robotic Arm Animation"
+              className="mx-auto max-h-64 lg:max-h-80 rounded-2xl shadow-xl border-4 border-white"
+            />
+          </motion.div>
 
         <SectionHeading text="Smartphone Controlled Programmable Robotic Arm" subText="[Project Blog – B.Tech 3rd Sem]" />
 
@@ -242,20 +360,21 @@ void loop() {
         <ContentBlock text="Have questions, suggestions, or want to collaborate? Leave a comment below or reach out via the contact page! For more projects and tutorials, explore the rest of my portfolio." />
 
         <SectionHeading text="Related Projects & Resources" />
-        <ul className="list-disc list-inside text-blue-300 my-2">
+        <ul className="list-disc list-inside text-blue-600 my-4 space-y-2">
           <li>
-            <a href="/Project" className="hover:underline">More Project</a>
+            <a href="/Project" className="hover:underline hover:text-blue-800 font-medium">More Projects</a>
           </li>
           <li>
-            <a href="/Tesla" className="hover:underline">Wireless Power Transmission</a>
+            <a href="/Tesla" className="hover:underline hover:text-blue-800 font-medium">Wireless Power Transmission</a>
           </li>
           <li>
-            <a href="/Ldr" className="hover:underline">LDR Sensor Project</a>
+            <a href="/Ldr" className="hover:underline hover:text-blue-800 font-medium">LDR Sensor Project</a>
           </li>
           <li>
-            <a href="https://github.com/psgpraveen" target="_blank" rel="noopener noreferrer" className="hover:underline">More on my GitHub</a>
+            <a href="https://github.com/psgpraveen" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-blue-800 font-medium">More on my GitHub</a>
           </li>
         </ul>
+        </div>
       </article>
       <Comment />
       <Footer />
@@ -271,7 +390,7 @@ const ContentBlock = ({ text }: { text: string }) => (
     initial={{ y: 50, opacity: 0 }}
     whileInView={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.5 }}
-    className="text-justify py-2 text-gray-200"
+    className="text-justify py-3 text-gray-700 leading-relaxed"
   >
     {text}
   </motion.p>
@@ -282,10 +401,10 @@ const SectionHeading = ({ text, subText }: { text: string, subText?: string }) =
     initial={{ y: 50, opacity: 0 }}
     whileInView={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.5 }}
-    className="text-center py-4"
+    className="text-center py-6 my-4"
   >
-    <h2 className="text-2xl font-bold underline text-white">{text}</h2>
-    {subText && <p className="text-sm text-gray-400 mt-1">{subText}</p>}
+    <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">{text}</h2>
+    {subText && <p className="text-sm text-gray-600 mt-2">{subText}</p>}
   </motion.div>
 );
 
@@ -294,7 +413,7 @@ const MotionList = ({ text }: { text: string }) => (
     initial={{ y: 50, opacity: 0 }}
     whileInView={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.5 }}
-    className="list-disc list-inside text-gray-300 my-1"
+    className="list-disc list-inside text-gray-700 my-2 leading-relaxed"
   >
     {text}
   </motion.li>

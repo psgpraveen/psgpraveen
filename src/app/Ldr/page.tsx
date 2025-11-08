@@ -805,10 +805,7 @@ float calculateResistance(int ldrValue) {
           >
             {/* Animated Background Pattern */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-                backgroundSize: '40px 40px'
-              }} />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,_white_1px,_transparent_0)] bg-[length:40px_40px]" />
             </div>
 
             <div className="relative z-10">
@@ -901,7 +898,7 @@ float calculateResistance(int ldrValue) {
                   {/* Video Container with Aspect Ratio */}
                   <div className="relative w-full max-w-5xl mx-auto">
                     {/* 16:9 Aspect Ratio Container */}
-                    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                    <div className="relative w-full pb-[56.25%]">
                       <video
                         ref={videoRef}
                         className="absolute top-0 left-0 w-full h-full object-contain bg-black rounded-lg sm:rounded-xl shadow-2xl"
@@ -1094,6 +1091,7 @@ float calculateResistance(int ldrValue) {
                     value={voltage}
                     onChange={(e) => setVoltage(Number(e.target.value))}
                     className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer"
+                    aria-label="Voltage Control"
                   />
                 </div>
 
@@ -1113,10 +1111,8 @@ float calculateResistance(int ldrValue) {
                     max="100"
                     value={lightIntensity}
                     onChange={(e) => setLightIntensity(Number(e.target.value))}
-                    className="w-full h-2 rounded-lg appearance-none cursor-pointer"
-                    style={{
-                      background: `linear-gradient(to right, #374151 0%, #FBBF24 ${lightIntensity}%, #FEF3C7 100%)`
-                    }}
+                    className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gradient-to-r from-gray-700 via-yellow-400 to-yellow-100"
+                    aria-label="Light Intensity Control"
                   />
                   <div className="flex justify-between mt-1 text-xs text-gray-500">
                     <span>🌙 Dark</span>
@@ -1228,7 +1224,8 @@ float calculateResistance(int ldrValue) {
                         <div
                           key={index}
                           className="flex-1 bg-blue-500 rounded-t"
-                          style={{ height: `${value}%` }}
+                          style={{ height: `${Math.max(value, 5)}%` }}
+                          aria-label={`Data point ${index + 1}: ${value}%`}
                         />
                       ))}
                     </div>

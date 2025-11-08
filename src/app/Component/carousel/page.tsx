@@ -361,12 +361,7 @@ const handleDragEnd = (
             </div>
 
             {/* Certificate Carousel - REDUCED HEIGHT */}
-            <div className="relative bg-gradient-to-b from-white to-blue-50 border border-gray-200 rounded-xl overflow-hidden shadow-md" 
-                style={{ 
-                  height: 
-                    typeof window !== 'undefined' && window.innerWidth < 480 ? "220px" :
-                    isMobile ? "250px" : "350px" 
-                }}>
+            <div className="relative bg-gradient-to-b from-white to-blue-50 border border-gray-200 rounded-xl overflow-hidden shadow-md h-[220px] sm:h-[250px] md:h-[350px]">
               {/* Current Certificate Info - More Compact */}
               <motion.div 
                 className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-gray-100/90 to-transparent pt-3 pb-6 px-3 sm:px-4"
@@ -611,6 +606,7 @@ const handleDragEnd = (
                     setZoomLevel(1.5);
                   }
                 }}
+                aria-label={isZoomed ? "Zoom out" : "Zoom in"}
               >
                 <FiMaximize size={20} />
               </button>
@@ -620,12 +616,14 @@ const handleDragEnd = (
                   certificates[modalIndex].src,
                   certificates[modalIndex].title
                 )}
+                aria-label="Download certificate"
               >
                 <FiDownload size={20} />
               </button>
               <button
                 className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700"
                 onClick={closeModal}
+                aria-label="Close modal"
               >
                 <FiX size={20} />
               </button>
@@ -637,12 +635,14 @@ const handleDragEnd = (
               onClick={(e) => e.stopPropagation()}
             >
               <div 
-                className="relative w-full max-w-6xl h-full max-h-[80vh] flex items-center justify-center overflow-hidden"
-                style={{ cursor: isZoomed ? 'zoom-out' : 'zoom-in' }}
+                className="relative w-full max-w-6xl h-full max-h-[80vh] flex items-center justify-center overflow-hidden cursor-zoom-in"
                 onClick={() => {
                   setIsZoomed(!isZoomed);
                   setZoomLevel(isZoomed ? 1 : 1.5);
                 }}
+                role="button"
+                tabIndex={0}
+                aria-label={isZoomed ? "Click to zoom out" : "Click to zoom in"}
               >
                 {!imageLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -674,6 +674,7 @@ const handleDragEnd = (
                 e.stopPropagation();
                 prevModalSlide();
               }}
+              aria-label="Previous certificate"
             >
               <FiChevronLeft size={24} />
             </button>
@@ -683,6 +684,7 @@ const handleDragEnd = (
                 e.stopPropagation();
                 nextModalSlide();
               }}
+              aria-label="Next certificate"
             >
               <FiChevronRight size={24} />
             </button>

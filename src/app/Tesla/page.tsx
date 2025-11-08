@@ -1,9 +1,11 @@
-'use client';
+﻿'use client';
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
+import Script from "next/script";
 import { motion } from 'framer-motion';
 import Comment from '@/app/Component/comment/page';
 import Header from '@/app/Component/Header/page';
+import Footer from '@/app/Component/Footer/page';
 import Seo from '@/components/Seo';
 
 // Enhanced translations with more content and details
@@ -235,289 +237,462 @@ const Index = () => {
         }}
         author="Praveen Kumar Gupta"
       />
+      
+      {/* Enhanced Structured Data */}
+      <Script id="tesla-article-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": t.objective,
+          "description": t.intro,
+          "image": imageUrl,
+          "author": {
+            "@type": "Person",
+            "name": "Praveen Kumar Gupta",
+            "url": "https://psgpraveen.me"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Praveen Kumar Gupta",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://psgpraveen.me/images/psglogo.png"
+            }
+          },
+          "datePublished": "2024-05-01",
+          "dateModified": new Date().toISOString(),
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl
+          }
+        })}
+      </Script>
+
+      <Script id="tesla-howto-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to Build a Tesla Coil Wireless Bulb Project",
+          "description": "Step-by-step guide to building a wireless power transmission project using Tesla coil",
+          "image": imageUrl,
+          "totalTime": "PT4H",
+          "estimatedCost": {
+            "@type": "MonetaryAmount",
+            "currency": "USD",
+            "value": "50"
+          },
+          "supply": t.componentsList.map(item => ({
+            "@type": "HowToSupply",
+            "name": item
+          })),
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Wind the Secondary Coil",
+              "text": "Use fine copper wire and a plastic tube. The more turns, the higher the voltage.",
+              "url": canonicalUrl + "#assembly"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Prepare the Primary Coil",
+              "text": "Use thicker copper wire and wind a few turns around the base of the secondary coil.",
+              "url": canonicalUrl + "#assembly"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Assemble the Circuit",
+              "text": "Connect the transistor, LED, coils, and battery as shown in the circuit diagram.",
+              "url": canonicalUrl + "#circuit"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Test the Setup",
+              "text": "Place a CFL bulb near the secondary coil and power the circuit.",
+              "url": canonicalUrl + "#demo"
+            }
+          ]
+        })}
+      </Script>
+
       <Header />
-      <div className="flex justify-end px-8 pt-4">
-        <select
-          value={lang}
-          onChange={e => setLang(e.target.value as 'en' | 'hi')}
-          className="bg-gray-800 text-white border border-gray-600 rounded px-2 py-1"
-        >
-          <option value="en">English</option>
-          <option value="hi">हिन्दी</option>
-        </select>
-      </div>
-      <section id="tes" className="py-3 overflow-hidden min-h-screen">
-        <motion.h1
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 1.1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-bold text-blue-300 underline text-3xl mb-4"
-        >
-          {t.objective}
-        </motion.h1>
-
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="p-8 text-gray-200 text-lg"
-        >
-          {t.intro}
-        </motion.p>
-
-        {/* How-To Section for extra content and SEO */}
-        <section className="bg-gray-900 text-white py-8 px-4 my-8 rounded-xl max-w-3xl mx-auto shadow-lg">
-          <h2 className="text-2xl font-bold text-blue-400 mb-4 text-center">How to Build a Simple Tesla Coil Wireless Bulb Project</h2>
-          <ol className="list-decimal list-inside space-y-3 text-lg">
-            <li>
-              <b>Wind the Secondary Coil:</b> Use fine copper wire and a plastic tube. The more turns, the higher the voltage.
-            </li>
-            <li>
-              <b>Prepare the Primary Coil:</b> Use thicker copper wire and wind a few turns around the base of the secondary coil.
-            </li>
-            <li>
-              <b>Assemble the Circuit:</b> Connect the transistor, LED, coils, and battery as shown in the circuit diagram.
-            </li>
-            <li>
-              <b>Insulate and Secure:</b> Use insulating tape to prevent shorts and secure the coils.
-            </li>
-            <li>
-              <b>Test the Setup:</b> Place a CFL bulb near the secondary coil and power the circuit. The bulb should glow wirelessly!
-            </li>
-          </ol>
-          <p className="mt-6 text-center text-green-300">
-            <b>Tip:</b> Try different coil sizes and distances for best results. Always follow safety precautions!
-          </p>
-        </section>
-
-        <motion.h2
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-bold text-purple-300 underline text-2xl"
-        >
-          {t.history}
-        </motion.h2>
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="px-8 pb-4 text-gray-300"
-        >
-          {t.historyContent}
-        </motion.p>
-
-        <motion.h2
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-bold text-yellow-400 underline text-2xl"
-        >
-          {t.how}
-        </motion.h2>
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="px-8 pb-4 text-gray-300"
-        >
-          {t.howContent}
-        </motion.p>
-
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-blue-400 underline text-xl"
-        >
-          {t.circuit}
-        </motion.h3>
-        <motion.img
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 1.1 }}
-          transition={{ duration: 0.5 }}
-          src="/img/Inkedtesla-circuits.jpg"
-          className="mx-auto py-8 max-w-xl rounded-lg shadow-lg border border-blue-900"
-          alt="Tesla Coil Circuit Diagram"
-        />
-
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-blue-400 underline text-xl"
-        >
-          {t.components}
-        </motion.h3>
-        <ul className="list-disc list-inside px-12 pb-6 text-gray-300">
-          {t.componentsList.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
-
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-green-300 underline text-xl"
-        >
-          {t.assembly}
-        </motion.h3>
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="px-8 pb-4 text-gray-300"
-        >
-          {t.assemblyContent}
-        </motion.p>
-
-        <motion.h2
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-bold underline text-yellow-400 text-2xl"
-        >
-          {t.demo}
-        </motion.h2>
-
-        <div className="lg:flex gap-5 mx-16 my-12 justify-center">
-          <motion.video
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
-            className="h-80 border-black drop-shadow-md mb-4 lg:mb-0 rounded-lg border-3"
-            autoPlay
-            muted
-            controls
+      
+      {/* Modern Article Container */}
+      <article className="relative min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 opacity-30 -z-10"></div>
+        <div className="absolute top-10 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-10 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-pulse"></div>
+        
+        <div className="max-w-5xl mx-auto relative z-10">
+          {/* Language Selector - Modern Design */}
+          <motion.div 
+            className="flex justify-end mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
           >
-            <source src='/img/tesla2.mp4' type="video/mp4" />
-            Your browser does not support the video tag.
-          </motion.video>
-          <motion.video
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
-            className="h-80 border-3 rounded-lg drop-shadow-md border-black"
-            autoPlay
-            muted
-            controls
-          >
-            <source src='/img/Tesla3.mp4' type="video/mp4" />
-            Your browser does not support the video tag.
-          </motion.video>
+            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm shadow-lg rounded-full px-4 py-2 border border-gray-200">
+              <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+              <select
+                value={lang}
+                onChange={e => setLang(e.target.value as 'en' | 'hi')}
+                className="bg-transparent text-gray-800 font-medium focus:outline-none cursor-pointer"
+                aria-label="Select Language"
+              >
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+              </select>
+            </div>
+          </motion.div>
+
+          {/* Main Content Card */}
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-6 sm:p-10 lg:p-16 border border-gray-100">
+            {/* Badge and Title */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <span className="inline-flex items-center bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 text-sm font-semibold px-4 py-2 rounded-full mb-6 shadow-sm">
+                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
+                </svg>
+                Physics & Electronics Project
+              </span>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent mb-6">
+                {t.objective}
+              </h1>
+            </motion.div>
+
+            {/* Introduction */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+                {t.intro}
+              </p>
+            </motion.div>
+
+            {/* History Section */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+                {t.history}
+              </h2>
+              <p className="text-gray-700 leading-relaxed">
+                {t.historyContent}
+              </p>
+            </motion.div>
+
+            {/* How It Works Section */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-4">
+                {t.how}
+              </h2>
+              <p className="text-gray-700 leading-relaxed">
+                {t.howContent}
+              </p>
+            </motion.div>
+
+            {/* How-To Build Section with modern styling */}
+            <motion.section
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 mb-12 shadow-xl border border-blue-100"
+            >
+              <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6 text-center">
+                How to Build a Simple Tesla Coil Wireless Bulb Project
+              </h2>
+              <ol className="list-decimal list-inside space-y-4 text-gray-700">
+                <li className="pl-2">
+                  <strong className="text-blue-700">Wind the Secondary Coil:</strong> Use fine copper wire and a plastic tube. The more turns, the higher the voltage.
+                </li>
+                <li className="pl-2">
+                  <strong className="text-blue-700">Prepare the Primary Coil:</strong> Use thicker copper wire and wind a few turns around the base of the secondary coil.
+                </li>
+                <li className="pl-2">
+                  <strong className="text-blue-700">Assemble the Circuit:</strong> Connect the transistor, LED, coils, and battery as shown in the circuit diagram.
+                </li>
+                <li className="pl-2">
+                  <strong className="text-blue-700">Insulate and Secure:</strong> Use insulating tape to prevent shorts and secure the coils.
+                </li>
+                <li className="pl-2">
+                  <strong className="text-blue-700">Test the Setup:</strong> Place a CFL bulb near the secondary coil and power the circuit. The bulb should glow wirelessly!
+                </li>
+              </ol>
+              <div className="mt-6 p-4 bg-green-50 rounded-xl border border-green-200">
+                <p className="text-center text-green-800 font-medium">
+                  <strong>💡 Tip:</strong> Try different coil sizes and distances for best results. Always follow safety precautions!
+                </p>
+              </div>
+            </motion.section>
+
+            {/* Circuit Diagram */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <h3 className="text-2xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+                {t.circuit}
+              </h3>
+              <motion.img
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                src="/img/Inkedtesla-circuits.jpg"
+                className="mx-auto rounded-2xl shadow-2xl border border-gray-200 max-w-2xl w-full"
+                alt="Tesla Coil Circuit Diagram"
+              />
+            </motion.div>
+
+            {/* Components Section */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-xl border border-purple-100"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
+                {t.components}
+              </h3>
+              <ul className="grid md:grid-cols-2 gap-3">
+                {t.componentsList.map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-gray-700">
+                    <svg className="w-5 h-5 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Assembly Tips */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent mb-4">
+                {t.assembly}
+              </h3>
+              <p className="text-gray-700 leading-relaxed bg-green-50 p-6 rounded-xl border border-green-200">
+                {t.assemblyContent}
+              </p>
+            </motion.div>
+
+            {/* Working Model Demo */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent mb-8">
+                {t.demo}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <motion.video
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full rounded-2xl shadow-2xl border border-gray-200"
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                >
+                  <source src='/img/tesla2.mp4' type="video/mp4" />
+                  Your browser does not support the video tag.
+                </motion.video>
+                <motion.video
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full rounded-2xl shadow-2xl border border-gray-200"
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                >
+                  <source src='/img/Tesla3.mp4' type="video/mp4" />
+                  Your browser does not support the video tag.
+                </motion.video>
+              </div>
+            </motion.div>
+
+            {/* Applications */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12 bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-8 shadow-xl border border-green-100"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent mb-6">
+                {t.applications}
+              </h3>
+              <ul className="space-y-3">
+                {t.applicationsList.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-gray-700">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Limitations */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-4">
+                {t.limitations}
+              </h3>
+              <p className="text-gray-700 leading-relaxed bg-orange-50 p-6 rounded-xl border border-orange-200">
+                {t.limitationsContent}
+              </p>
+            </motion.div>
+
+            {/* Safety Precautions */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 shadow-xl border border-red-200"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-6 flex items-center gap-2">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+                {t.safety}
+              </h3>
+              <ul className="space-y-3">
+                {t.safetyList.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-red-800 font-medium">
+                    <svg className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Further Exploration */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-xl border border-blue-100"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6">
+                {t.explore}
+              </h3>
+              <ul className="space-y-3">
+                {t.exploreList.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-gray-700">
+                    <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clipRule="evenodd" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* FAQ Section */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12 bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-8 shadow-xl border border-yellow-100"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent mb-6">
+                {t.faq}
+              </h3>
+              <div className="space-y-4">
+                {t.faqList.map((item, idx) => (
+                  <div key={idx} className="bg-white p-4 rounded-xl shadow-sm border border-yellow-200">
+                    <p className="text-gray-800 whitespace-pre-line leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Conclusion */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12 bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100 p-8 rounded-2xl shadow-xl border border-purple-200"
+            >
+              <p className="text-lg text-gray-800 leading-relaxed font-medium">
+                {t.conclusion}
+              </p>
+            </motion.div>
+
+            {/* Resources */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-6">
+                {t.resources}
+              </h3>
+              <ul className="space-y-3">
+                {t.resourcesList.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                    </svg>
+                    <a 
+                      href={item.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
         </div>
+      </article>
 
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-blue-400 underline text-xl"
-        >
-          {t.applications}
-        </motion.h3>
-        <ul className="list-disc list-inside px-12 pb-6 text-green-300">
-          {t.applicationsList.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
-
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-orange-300 underline text-xl"
-        >
-          {t.limitations}
-        </motion.h3>
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="px-8 pb-4 text-gray-300"
-        >
-          {t.limitationsContent}
-        </motion.p>
-
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-red-400 underline text-xl"
-        >
-          {t.safety}
-        </motion.h3>
-        <ul className="list-disc list-inside px-12 pb-6 text-red-400">
-          {t.safetyList.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
-
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-blue-400 underline text-xl"
-        >
-          {t.explore}
-        </motion.h3>
-        <ul className="list-disc list-inside px-12 pb-6 text-gray-300">
-          {t.exploreList.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
-
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-yellow-400 underline text-xl"
-        >
-          {t.faq}
-        </motion.h3>
-        <ul className="list-disc list-inside px-12 pb-6 text-gray-200">
-          {t.faqList.map((item, idx) => (
-            <li key={idx} style={{ whiteSpace: 'pre-line' }}>{item}</li>
-          ))}
-        </ul>
-
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="px-8 pb-8 text-gray-300"
-        >
-          <b>{t.conclusion}</b>
-        </motion.p>
-
-        <motion.h3
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center font-semibold text-blue-300 underline text-xl"
-        >
-          {t.resources}
-        </motion.h3>
-        <ul className="list-disc list-inside px-12 pb-10 text-blue-300">
-          {t.resourcesList.map((item, idx) => (
-            <li key={idx}>
-              <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{item.label}</a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="w-full">
+      {/* Comments Section */}
+      <div className="bg-gray-50 py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Comment />
         </div>
-      </section>
+      </div>
+      
+      <Footer />
     </>
   );
 };
