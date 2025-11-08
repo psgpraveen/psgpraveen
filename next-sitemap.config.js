@@ -30,11 +30,29 @@ module.exports = {
   transform: async (config, path) => {
     // Custom priority and changefreq for different pages
     const customPriorities = {
+      // Homepage - highest priority
       "/": { priority: 1.0, changefreq: "daily" },
+      
+      // Main sections - very high priority
+      "/Project": { priority: 0.95, changefreq: "weekly" },
+      "/Contact": { priority: 0.9, changefreq: "monthly" },
       "/Component/comment": { priority: 0.9, changefreq: "weekly" },
-      "/Component/project": { priority: 0.9, changefreq: "weekly" },
-      "/Contact": { priority: 0.8, changefreq: "monthly" },
-      "/Project": { priority: 0.9, changefreq: "weekly" },
+      "/Component/project": { priority: 0.95, changefreq: "weekly" },
+      "/Component/skill": { priority: 0.9, changefreq: "monthly" },
+      "/Component/MyService": { priority: 0.9, changefreq: "monthly" },
+      "/Component/carousel": { priority: 0.8, changefreq: "monthly" },
+      
+      // Project pages - high priority for SEO
+      "/ROBO": { priority: 0.95, changefreq: "monthly" },
+      "/Tesla": { priority: 0.95, changefreq: "monthly" },
+      "/Ldr": { priority: 0.95, changefreq: "monthly" },
+      
+      // Other components
+      "/Component/feedback": { priority: 0.85, changefreq: "monthly" },
+      "/Component/Header": { priority: 0.7, changefreq: "monthly" },
+      "/Component/Footer": { priority: 0.7, changefreq: "monthly" },
+      "/Component/Phone": { priority: 0.75, changefreq: "monthly" },
+      "/Component/status": { priority: 0.7, changefreq: "daily" },
     };
 
     const customConfig = customPriorities[path] || {};

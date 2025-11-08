@@ -234,6 +234,72 @@ export default function LDRCircuit() {
           "@type": "Answer",
           "text": "Read values in different lighting conditions and use the map() function to scale them to your desired range (0-255 for LED brightness)."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an LDR and how does it work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An LDR (Light Dependent Resistor) is a passive electronic component whose resistance decreases with increasing light intensity. It works on the photoconductivity principle - when photons hit the semiconductor material, they free electrons, reducing resistance and allowing more current to flow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What components are needed for an LDR circuit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a basic LDR circuit you need: LDR sensor, Arduino or microcontroller, LED, resistors (10kΩ for voltage divider), connecting wires, breadboard, and 5V power supply. The estimated cost is around $15-20."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are real-world applications of LDR circuits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LDR circuits are used in automatic street lights, light meters in cameras, solar tracking systems, burglar alarm systems, automatic brightness control in smartphones and displays, greenhouse automation, and light-activated switches in homes and offices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build an LDR circuit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Building a basic LDR circuit takes about 30 minutes to 1 hour for beginners. This includes assembling the circuit on a breadboard, writing and uploading Arduino code, and testing. With experience, it can be done in 15-20 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need programming experience for LDR projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Basic programming knowledge is helpful but not required. The Arduino code for LDR circuits is simple and well-documented. You need to understand analogRead() function, voltage divider concept, and basic if-else conditions. Many ready-made examples are available to get started."
+        }
+      }
+    ]
+  };
+
+  // Breadcrumb structured data
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://psgpraveen.me"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://psgpraveen.me/Project"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "LDR Circuit Simulation",
+        "item": canonicalUrl
       }
     ]
   };
@@ -670,6 +736,10 @@ float calculateResistance(int ldrValue) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
 
       <div ref={containerRef} className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white' : 'bg-gradient-to-br from-blue-50 via-white to-purple-50'}`}>

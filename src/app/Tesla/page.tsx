@@ -314,6 +314,123 @@ const Index = () => {
         })}
       </Script>
 
+      {/* Breadcrumb Schema */}
+      <Script id="tesla-breadcrumb-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://psgpraveen.me"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://psgpraveen.me/Project"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Tesla Coil Wireless Power Project",
+              "item": canonicalUrl
+            }
+          ]
+        })}
+      </Script>
+
+      {/* FAQ Schema */}
+      <Script id="tesla-faq-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a Tesla Coil and how does it work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A Tesla Coil is a resonant transformer circuit that generates high-voltage, low-current, high-frequency alternating-current electricity. It works by using a transistor to supply oscillating current through a primary coil, creating a rapidly changing magnetic field that induces high voltage in a secondary coil. This energy can wirelessly power devices like CFL bulbs placed nearby."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What components are needed to build a Tesla Coil wireless power project?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You need: 9V battery, 2N2222 high-frequency transistor, primary coil (few turns of copper wire), secondary coil (many turns of fine copper wire), LED diode, CFL bulb, connecting wires, breadboard or PCB, insulating tape, and a plastic tube for winding coils. The estimated cost is around $50."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does it cost to build a Tesla Coil project?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Tesla Coil wireless bulb project costs approximately $50 USD. This includes all components like the 9V battery, 2N2222 transistor, copper wires for both coils, LED, CFL bulb, breadboard, and insulating materials. Prices may vary based on your location and component quality."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take to build this project?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Building the Tesla Coil wireless power project typically takes about 4 hours. This includes winding the coils (which is the most time-consuming part), assembling the circuit, and testing. Beginners may need additional time for troubleshooting."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use a different transistor instead of 2N2222?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, you can use other high-frequency NPN transistors like BC547, but the 2N2222 is recommended for its stability and performance in this application. Make sure any replacement transistor can handle high-frequency switching."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the Tesla Coil project safe for students and kids?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, this project is safe when using a 9V battery and following proper safety precautions. Always supervise children during experiments, ensure proper wire insulation, don't touch coil terminals while powered, and keep away from sensitive electronic devices and medical equipment like pacemakers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the real-world applications of Tesla Coil technology?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tesla Coil principles are used in wireless charging technologies (like Qi chargers), radio transmission, educational demonstrations, medical equipment sterilization, plasma globe displays, and as inspiration for modern wireless power transfer systems. It's also great for science fairs and STEM exhibitions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is my bulb not glowing in the Tesla Coil circuit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Common issues: Check your coil windings (secondary coil needs many tight turns), verify all connections match the circuit diagram, ensure you're using a CFL or fluorescent bulb (not LED or incandescent), check transistor orientation, verify battery voltage, and make sure coils are properly insulated from each other."
+              }
+            }
+          ]
+        })}
+      </Script>
+
+      {/* Video Schema */}
+      <Script id="tesla-video-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "name": "Tesla Coil Wireless Power Transmission Demo",
+          "description": "Watch how Tesla Coil wirelessly powers a CFL bulb through electromagnetic induction. This demonstration shows wireless power transmission in action.",
+          "thumbnailUrl": imageUrl,
+          "uploadDate": "2024-05-01",
+          "contentUrl": canonicalUrl + "#demo",
+          "embedUrl": canonicalUrl + "#demo",
+          "duration": "PT2M30S"
+        })}
+      </Script>
+
       <Header />
       
       {/* Modern Article Container */}
