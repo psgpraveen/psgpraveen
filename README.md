@@ -1,45 +1,64 @@
-<h1 align="center">Praveen Gupta</h1>
-<p align="center">
-  Full-Stack Developer • Next.js & Node.js • Building scalable web systems
-</p>
+# 👋 Hi, I'm Praveen Kumar Gupta  
 
-<p align="center">
-  <a href="https://psgpraveen.me" target="_blank">Portfolio</a> •
-  <a href="https://github.com/psgpraveen" target="_blank">GitHub</a> •
-  <a href="https://www.linkedin.com/in/<your-link>" target="_blank">LinkedIn</a>
-</p>
+🚀 **Software Developer | Full Stack Engineer | IoT & Web Systems**  
+I build intelligent systems that connect hardware and cloud — combining **Next.js**, **Node.js**, and **ESP32** projects with strong backend logic and real-time communication.
 
 ---
 
-### About Me
-I build web applications that are clean, maintainable, and actually deployable — not just tutorial junk.
-Focused on **Next.js + Node.js** with real API integration, authentication, and database design.
-
-### Tech Stack
-| Category | Skills |
-|---------|--------|
-| **Frontend** | Next.js, React, Tailwind, TypeScript |
-| **Backend** | Node.js, Express.js, REST APIs, WebSockets |
-| **Database** | MongoDB, PostgreSQL |
-| **Other** | Git, Docker, Linux, Vercel, NGINX |
+## 💡 About Me  
+🔹 Passionate about full-stack web development, APIs, and automation  
+🔹 Exploring AI integrations and private assistants using Next.js + Express  
+🔹 Focused on creating scalable, maintainable software with real-world impact  
+🔹 Always learning — from IoT circuits to production-grade backend systems  
 
 ---
 
-### Projects That Matter
-| Name | What It Does | Stack | Live | Code |
-|------|-------------|-------|------|------|
-| **Smart Appliance Energy Dashboard** | Monitor & control appliances in real-time | ESP32, Node.js, MongoDB, Next.js | 🔗 https://your-live-link | 🔗 https://github.com/your-repo |
-| **Bulk Email Sender** | Sends email campaigns with logs + filtering | Node.js, Express.js, SMTP | 🔗 https://your-live-link | 🔗 https://github.com/your-repo |
-| **Personal Portfolio** | Clean portfolio with SEO & projects | Next.js, Tailwind | 🔗 https://psgpraveen.me | 🔗 https://github.com/psgpraveen/portfolio |
+## 🧠 Tech Stack  
+
+**Languages:**  
+`JavaScript` · `TypeScript` · `Python` · `C++`  
+
+**Frontend:**  
+`Next.js` · `React.js` · `Tailwind CSS`  
+
+**Backend:**  
+`Node.js` · `Express.js` · `REST API` · `JWT Auth`  
+
+**Database & Cloud:**  
+`MongoDB` · `Firebase` · `Vercel`  
+
+**Tools & Others:**  
+`Git` · `GitHub` · `Postman` · `Docker` · `VS Code` · `Socket.IO`  
 
 ---
 
-### Current Focus
-- Real-time systems (WebSockets / MQTT)
-- API architecture & scalability
-- Production deployment strategies
+## 🛠️ Projects  
+🔹 **Smart Appliance Energy & Control System** — ESP32 + Web Dashboard for real-time monitoring and control  
+🔹 **Private AI Assistant** — Next.js + Express + OpenAI API integration for personal automation  
+🔹 **Bulk Email Sender** — Backend tool for optimized mail dispatch with monitoring and analytics  
+🔹 **IoT Power Monitor** — AC current/voltage tracking via multiplexer and backend reporting  
 
 ---
 
-### Contact
-- **Email:** your@email
+## 📊 GitHub Stats  
+
+![Praveen's GitHub stats](https://github-readme-stats.vercel.app/api?username=psgpraveen&show_icons=true&theme=tokyonight&hide_border=true)  
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=psgpraveen&layout=compact&theme=tokyonight&hide_border=true)  
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=psgpraveen&theme=tokyonight&hide_border=true)  
+
+---
+
+## 🌐 Connect with Me  
+
+[![Portfolio](https://img.shields.io/badge/Website-000?style=for-the-badge&logo=vercel&logoColor=white)](https://webwalebhai.vercel.app)  
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/webwalebhai_)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/psgpraveen)  
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/psgpraveen)
+
+---
+
+## ⚡ Fun Fact  
+When I’m not coding, I’m usually experimenting with IoT circuits or exploring new frameworks — anything that blends **hardware and logic** to make ideas real.
+
+---
+⭐ **If you like my work, consider following me or checking out my projects!**
