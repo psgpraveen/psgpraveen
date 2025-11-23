@@ -72,16 +72,15 @@ Multiplexer-based AC voltage/current tracking system with backend synchronizatio
 ## 🎯 Current Goals  
 
 ✔ Deepen expertise in **Next.js 14 App Router**  
-✔ Implement **Edge Functions & WebSockets** for real-time systems  
-✔ Build scalable IoT infrastructure with **MQTT bridges**  
+✔ Implement **Edge Functions & WebSockets*
 ✔ Launch a complete **SaaS for Smart Appliance Control**
 
 ---
 
 ## 🌐 Connect with Me  
 
-[![Portfolio](https://img.shields.io/badge/Website-000?style=for-the-badge&logo=vercel&logoColor=white)](https://webwalebhai.vercel.app)  
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/webwalebhai_)  
+[![Portfolio](https://img.shields.io/badge/Website-000?style=for-the-badge&logo=vercel&logoColor=white)](https:// psgpraveen.me)  
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/psgpraveen08)  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/psgpraveen)  
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/psgpraveen)
 
