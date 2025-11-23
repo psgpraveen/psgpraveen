@@ -91,4 +91,4 @@ Every project starts as a small experiment — and often ends up evolving into a
 
 ---
 
-⭐ **If you find my work interesting, follow me or explore my repositories — collaboration is always welcome.**
+⭐ **If you find my work interesting, follow me or explore my repositories — collaboration is always welcome.** 
