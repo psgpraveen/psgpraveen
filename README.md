@@ -232,6 +232,7 @@ Multiplexer-based AC monitoring system
 ---
 
 ### 🎵 Currently Vibing To
+<!-- Note: Replace with your actual Spotify widget or remove if not using Spotify integration -->
 [![Spotify](https://novatorem-psgpraveen.vercel.app/api/spotify)](https://open.spotify.com/user/31z3p3dfyf5jzxnqvb3hlk2uhdlq)
 
 ---
