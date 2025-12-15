@@ -106,7 +106,7 @@ function DestroyRecreateWord({
   const [phase, setPhase] = useState<"original" | "destroy" | "recreate">("original");
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: NodeJS.Timeout | undefined;
 
     if (phase === "original") {
       timeoutId = setTimeout(() => setPhase("destroy"), delay);
@@ -117,7 +117,9 @@ function DestroyRecreateWord({
     }
 
     return () => {
-      clearTimeout(timeoutId);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
     };
   }, [phase, delay, destroyTime, recreateTime]);
 
