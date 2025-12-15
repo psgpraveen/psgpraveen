@@ -54,7 +54,7 @@ const Index = () => {
     const interval = setInterval(() => {
       setLoading(true);
       setCurrentIndex((prevIndex) => (prevIndex + itemsPerPage) % skills.length);
-    }, 1500);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 

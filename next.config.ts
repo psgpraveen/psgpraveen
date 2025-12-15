@@ -9,7 +9,28 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Include MDX files in page routing
   pageExtensions: ['js','jsx','ts','tsx','md','mdx'],
-  // …any other Next.js config options you already have
+  
+  // Performance optimizations
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  
+  // Compression
+  compress: true,
+  
+  // Optimize production builds
+  swcMinify: true,
+  
+  // Experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'react-icons', '@react-three/fiber', '@react-three/drei'],
+  },
 }
 
 // Wrap it with MDX support

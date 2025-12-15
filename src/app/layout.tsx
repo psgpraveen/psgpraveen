@@ -6,6 +6,7 @@ import GlobalCanvasBackground from "@/components/GlobalCanvasBackground";
 import { Toaster } from "react-hot-toast";
 import Seo from "@/components/Seo";
 import Script from "next/script";
+import { layoutKeywords } from "@/data/seoKeywords";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -60,124 +61,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Expanded keywords covering domain, projects, services, technologies
-  const allKeywords = [
-    // Branding & Domain
-    "Praveen Kumar Gupta",
-    "psgpraveen.me",
-    "Praveen Portfolio",
-    "Portfolio Next.js React",
-    "Portfolio Full Stack Developer",
-
-    // Core Tech
-    "Next.js Developer",
-    "React Developer",
-    "Node.js Backend",
-    "Express.js APIs",
-    "MongoDB NoSQL",
-    "React Native Apps",
-    "Tailwind CSS Design",
-    "DaisyUI Components",
-    "Framer Motion Animations",
-    "Three.js 3D Canvas",
-    "React Three Fiber",
-
-    // Services
-    "Web Development Services",
-    "SEO Optimization",
-    "Performance Tuning",
-    "Responsive Web Design",
-    "Accessibility Audit",
-    "UI/UX Design",
-
-    // Projects
-    "Programmable Robotic Arm",
-    "Smartphone Controlled Arm",
-    "4 DOF Robotic Arm Project",
-    "LDR Street Light Automation",
-    "Automatic Street Light",
-    "Wireless Power Transmission",
-    "Tesla Coil Demo",
-    "Interior Design Website",
-    "Government School Website",
-    "GHSC School Website",
-
-    // Metrics & Feedback
-    "Projects Completed",
-    "Client Testimonials",
-    "User Feedback",
-    "Testimonials Section",
-
-    // Contact
-    "Contact Praveen",
-    "+91 7985942726",
-    "WhatsApp Chat",
-    "Link to Call",
-    "Get in Touch",
-
-    // Tools & CI/CD
-    "GitHub Actions",
-    "CI/CD Workflows",
-    "Docker Containerization",
-    "AWS EC2 Hosting",
-    "Vercel Deployment",
-    "Netlify Hosting",
-    "Firebase Realtime Database",
-    "Postman API Testing",
-
-    // Long-tail SEO keywords
-    "hire full stack developer",
-    "best next.js developer",
-    "react developer for hire",
-    "freelance web developer",
-    "custom website development",
-    "modern web applications",
-    "responsive website design services",
-    "professional portfolio website",
-    "web development portfolio",
-    "javascript expert developer",
-    "typescript developer",
-    "MERN stack developer",
-    "full stack javascript developer",
-    "nodejs backend developer",
-    "react frontend developer",
-    "web app development services",
-
-    // Location-based SEO
-    "web developer india",
-    "full stack developer varanasi",
-    "react developer uttar pradesh",
-    "freelance developer india",
-    "remote developer india",
-    "indian web developer",
-
-    // Project-specific long-tail
-    "how to build robotic arm",
-    "arduino robotic arm tutorial",
-    "tesla coil project guide",
-    "LDR circuit with arduino",
-    "automatic street light project",
-    "wireless power transmission project",
-    "bluetooth controlled robot",
-    "IoT automation projects",
-
-    // Service-specific long-tail
-    "website SEO optimization services",
-    "web performance optimization",
-    "progressive web app development",
-    "custom web application development",
-    "e-commerce website development",
-    "business website development",
-    "landing page design services",
-    "web app UI UX design",
-
-    // Technical certifications & expertise
-    "certified web developer",
-    "professional web developer",
-    "experienced full stack developer",
-    "expert react developer",
-    "senior javascript developer",
-  ];
 
   // Title must be string
   const titleString = metadata.title as string;
@@ -388,11 +271,11 @@ export default function RootLayout({
         <Seo
           title={titleString}
           description={metadata.description!}
-          keywords={allKeywords}
+          keywords={layoutKeywords}
           image="/images/psglogo.png"
           author="Praveen Kumar Gupta"
         />
-        <meta name="keywords" content={allKeywords.join(", ")} />
+        <meta name="keywords" content={layoutKeywords.join(", ")} />
       </head>
       <body className="antialiased">
         <div className="relative min-h-screen">

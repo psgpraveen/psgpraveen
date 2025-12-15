@@ -30,7 +30,7 @@ type SplitTextProps = {
 };
 
 function SnowParticles() {
-  const count = 300;
+  const count = 150;
   const mesh = useRef<THREE.Points | null>(null);
 
   const positions = useRef(
@@ -93,9 +93,9 @@ function SplitText({ text, animationKey, fadeOut, onComplete, className }: Split
 function DestroyRecreateWord({
   text,
   className,
-  delay = 1400,
-  destroyTime = 900,
-  recreateTime = 1800,
+  delay = 2000,
+  destroyTime = 1200,
+  recreateTime = 2400,
 }: {
   text: string;
   className?: string;
@@ -106,20 +106,18 @@ function DestroyRecreateWord({
   const [phase, setPhase] = useState<"original" | "destroy" | "recreate">("original");
 
   useEffect(() => {
-    let destroyTimeout: NodeJS.Timeout, recreateTimeout: NodeJS.Timeout, resetTimeout: NodeJS.Timeout;
+    let timeoutId: NodeJS.Timeout;
 
     if (phase === "original") {
-      destroyTimeout = setTimeout(() => setPhase("destroy"), delay);
+      timeoutId = setTimeout(() => setPhase("destroy"), delay);
     } else if (phase === "destroy") {
-      recreateTimeout = setTimeout(() => setPhase("recreate"), destroyTime);
+      timeoutId = setTimeout(() => setPhase("recreate"), destroyTime);
     } else if (phase === "recreate") {
-      resetTimeout = setTimeout(() => setPhase("original"), recreateTime);
+      timeoutId = setTimeout(() => setPhase("original"), recreateTime);
     }
 
     return () => {
-      clearTimeout(destroyTimeout);
-      clearTimeout(recreateTimeout);
-      clearTimeout(resetTimeout);
+      clearTimeout(timeoutId);
     };
   }, [phase, delay, destroyTime, recreateTime]);
 
@@ -146,7 +144,6 @@ export default function Hero() {
 
   useEffect(() => {
     if (isMobile) return; // Do not attach event on mobile
-console.log(cursor)
     const handleMouseMove = (event: MouseEvent) => {
       const x = (event.clientX / window.innerWidth) * 2 - 1;
       const y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -191,7 +188,7 @@ console.log(cursor)
           <ambientLight intensity={0.7} color="#090c0eff" />
           <directionalLight position={[3, 2, 1]} intensity={1.2} />
           <OrbitControls enableZoom={false} enabled={!isMobile} />
-          <Stars radius={100} depth={50} count={5000} factor={4} fade />
+          <Stars radius={100} depth={50} count={2000} factor={4} fade />
           <SnowParticles />
          
          {isMobile ? " ":<>  <AvatarModel num={11} /><AvatarModel num={12} position={[1.5, 0, 0]} scale={1} /></>}

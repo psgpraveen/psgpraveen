@@ -6,7 +6,7 @@ import * as THREE from "three";
 
 // Snow Particles Component
 function SnowParticles() {
-  const count = 500;
+  const count = 200;
   const mesh = useRef<THREE.Points>(null); 
 
   const initialPositions = useMemo(() => {
@@ -80,8 +80,7 @@ export default function GlobalCanvasBackground() {
         <ambientLight intensity={2} color="#ffffff" /> {/* 💡 Increased */}
         <directionalLight position={[3, 2, 1]} intensity={1.5} />
         <OrbitControls enableZoom={false} />
-        <Stars radius={100} depth={50} count={5000} factor={4} fade />
-        <SnowParticles />
+        <Stars radius={100} depth={50} count={3000} factor={4} fade />
         <SnowParticles />
         <Float speed={2} rotationIntensity={2} floatIntensity={2}>
           <mesh

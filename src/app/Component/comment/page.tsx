@@ -77,6 +77,7 @@ const CommentSection = () => {
       setLoading(false);
     };
     fetchComments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Sort and filter comments
@@ -108,7 +109,8 @@ const CommentSection = () => {
 
   useEffect(() => {
     sortAndFilterComments(comments, sortOption, filterVerified);
-  }, [comments, sortOption, filterVerified]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortOption, filterVerified]);
 
   useEffect(() => {
     if (filteredComments.length < 2 || isPaused) return;
