@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState,useMemo } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Float, MeshDistortMaterial, Stars } from "@react-three/drei";
 import * as THREE from "three"; 
@@ -62,17 +62,7 @@ const z = (Math.random() - 0.5) * 40;
 
 // Main Background Component
 export default function GlobalCanvasBackground() {
-  const cursor = useRef({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      cursor.current.x = (event.clientX / window.innerWidth) * 2 - 1;
-      cursor.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   return (
     <div className="fixed w-full inset-0 -z-10 pointer-events-none">
@@ -84,7 +74,7 @@ export default function GlobalCanvasBackground() {
         <SnowParticles />
         <Float speed={2} rotationIntensity={2} floatIntensity={2}>
           <mesh
-            rotation={[cursor.current.y * Math.PI, cursor.current.x * Math.PI, 0]}
+            rotation={[0, 0, 0]}
             onPointerOver={() => setHovered(true)}
             onPointerOut={() => setHovered(false)}
             position={[1.5, 0, 0]}
