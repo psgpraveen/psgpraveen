@@ -1,94 +1,95 @@
-# 👋 Hi, I'm Praveen Gupta  
+# 👋 Hi, I'm Praveen Gupta
 
-🚀 **Full Stack Developer | Web Systems Engineer | Next.js + Node.js Specialist**  
-Building scalable, intelligent systems that connect **hardware and cloud** — from ESP32-powered IoT networks to production-grade web backends.
-
----
-
-## 📊 GitHub Insights  
-
-![Praveen's GitHub stats](https://github-readme-stats.vercel.app/api?username=psgpraveen&show_icons=true&theme=tokyonight&hide_border=true)  
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=psgpraveen&layout=compact&theme=tokyonight&hide_border=true)  
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=psgpraveen&theme=tokyonight&hide_border=true)  
+🚀 **Full-Stack Software Developer | Web Systems Engineer**  
+I build **production-ready web applications** with a strong focus on **backend architecture, scalability, and real-time systems**.
 
 ---
 
-## 💡 About Me  
-🔹 Passionate about full-stack web development and connected systems  
-🔹 Skilled in **Next.js, Node.js, Express, MongoDB, and real-time data control**  
-🔹 Experienced in backend architecture and IoT device integration  
-🔹 Exploring **AI-assisted software**, automation, and custom web tools  
-🔹 Open to **remote software development and R&D roles**
+## 💡 About Me
+
+- Full-stack developer specializing in **Next.js, Node.js, and backend systems**
+- Strong focus on **clean architecture, API design, and performance**
+- Experienced in building **end-to-end systems**: frontend → backend → database → deployment
+- Comfortable with **authentication, complex state, and real-time data**
+- Exploring **AI-assisted software, automation, and developer tools**
+- Open to **remote software development / backend / R&D roles**
+
+> I don’t build tutorial demos. I build systems meant to run, scale, and survive real users.
 
 ---
 
-## 🧠 Tech Stack  
+## 🧠 Tech Stack
 
-**Languages:**  
-`JavaScript` · `TypeScript` · `C++`  
+### Languages
+- JavaScript
+- TypeScript
 
-**Frontend:**  
-`Next.js` · `React.js` · `Tailwind CSS` · `Framer Motion`  
+### Frontend
+- Next.js (App Router)
+- React.js
+- Tailwind CSS
+- Framer Motion
 
-**Backend:**  
-`Node.js` · `Express.js` · `REST API` · `Socket.IO` · `JWT Auth`  
+### Backend
+- Node.js
+- Express.js
+- REST APIs
+- WebSockets
+- JWT Authentication
 
-**Database & Cloud:**  
-`MongoDB` · `Firebase` · `Vercel`  
+### Database & Infrastructure
+- MongoDB
+- Firebase
+- Vercel
+- Render
+- Cloudflare
 
-**Tools & Platforms:**  
-`Git` · `GitHub` · `Postman` · `Docker` · `VS Code` · `Render` · `Cloudflare`  
-
-**Hardware Integration (IoT):**  
-`ESP32` · `Arduino` · `Multiplexer` · `ZMPT10B` · `Relay Control`
-
----
-
-## 🔥 Featured Projects  
-
-🔹 **Smart Appliance Energy & Control System**  
-ESP32-powered IoT system with real-time voltage, current, and power tracking, integrated into a secure backend and web dashboard.  
-
-🔹 **Private AI Assistant**  
-Next.js + Express assistant with live camera, voice, and OpenAI integration — keeping all personal data local and secure.  
-
-🔹 **Bulk Email Sender Tool**  
-Backend mailer system with analytics, delivery tracking, and throttled dispatch logic.  
-
-🔹 **IoT Power Monitor**  
-Multiplexer-based AC voltage/current tracking system with backend synchronization and relay control support.  
+### Dev & Tooling
+- Git & GitHub
+- Docker
+- Postman
+- CI/CD
+- VS Code
 
 ---
 
-## 🧰 Tools & Setup  
+## 🔥 Featured Software Projects
 
-💻 **Editor:** VS Code + Productivity Extensions  
-⚙️ **Workflow:** Git · ESLint · Prettier · CI/CD  
-🧠 **Preferred Stack:** MERN + Next.js  
-🌍 **Deployments:** Vercel · Render · Docker  
+### Smart Web Control Platform
+A full-stack web system featuring:
+- Secure authentication and role-based access
+- Real-time updates using WebSockets
+- Scalable backend APIs with MongoDB
+- Production deployment on Vercel and Render
 
----
+### Private AI Assistant (Software Stack)
+- Next.js frontend with real-time UI updates
+- Express backend acting as a secure orchestration layer
+- AI API integration with strict server-side data control
+- Designed to keep user data private and isolated
 
-## 🎯 Current Goals  
-
-✔ Deepen expertise in **Next.js 14 App Router**  
-✔ Implement **Edge Functions & WebSockets*
-✔ Launch a complete **SaaS for Smart Appliance Control**
-
----
-
-## 🌐 Connect with Me  
-
-[![Portfolio](https://img.shields.io/badge/Website-000?style=for-the-badge&logo=vercel&logoColor=white)](https:// psgpraveen.me)  
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/psgpraveen08)  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/psgpraveen)  
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/psgpraveen)
+### Bulk Email Automation System
+- Backend-driven email dispatch engine
+- Throttling, queueing, and delivery tracking
+- Built for reliability, scale, and analytics
 
 ---
 
-## ⚡ Fun Fact  
-Every project starts as a small experiment — and often ends up evolving into a complete system that blends **hardware, logic, and automation**.
+## 🎯 Current Goals
+
+- Deepen expertise in **Next.js 14 App Router**
+- Build **real-time systems** using WebSockets
+- Develop a **commercial-grade SaaS** (auth, billing, observability)
+- Improve **backend performance and system design**
 
 ---
 
-⭐ **If you find my work interesting, follow me or explore my repositories — collaboration is always welcome.** 
+## 🌐 Connect
+
+- Portfolio: https://psgpraveen.me
+- GitHub: https://github.com/psgpraveen
+- LinkedIn: https://linkedin.com/in/psgpraveen
+
+---
+
+⭐ If you find my work useful, explore the repositories or reach out for collaboration.
