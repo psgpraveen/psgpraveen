@@ -77,6 +77,7 @@ const CommentSection = () => {
       setLoading(false);
     };
     fetchComments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Sort and filter comments
@@ -107,8 +108,12 @@ const CommentSection = () => {
   };
 
   useEffect(() => {
+    // Re-sort and filter when sort option or filter changes
+    // Note: 'comments' is intentionally not a dependency to avoid infinite loop
+    // Comments are sorted/filtered on initial fetch (line 72)
     sortAndFilterComments(comments, sortOption, filterVerified);
-  }, [comments, sortOption, filterVerified]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortOption, filterVerified]);
 
   useEffect(() => {
     if (filteredComments.length < 2 || isPaused) return;

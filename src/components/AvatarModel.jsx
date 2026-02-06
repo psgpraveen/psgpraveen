@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, memo } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
 
 // Preload models for faster switching
@@ -7,7 +7,7 @@ useGLTF.preload('/models/model (11).glb');
 useGLTF.preload('/models/model (12).glb');
 // Add more as needed
 
-export default function AvatarModel(props) {
+function AvatarModel(props) {
     const {
         num,
         scale = 1.3,
@@ -50,3 +50,5 @@ export default function AvatarModel(props) {
         </group>
     );
 }
+
+export default memo(AvatarModel);
