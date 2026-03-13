@@ -1,4 +1,3 @@
-// src/app/page.tsx
 import Hero from "@/components/Hero";
 import Card from "@/app/Component/skill/page";
 import Status from "@/app/Component/status/page";
@@ -10,6 +9,8 @@ import Cert from "@/app/Component/carousel/page";
 import Feedback from "@/app/Component/feedback/page";
 import Footer from "@/app/Component/Footer/page";
 import Seo from "@/components/Seo";
+
+export const dynamic = "force-dynamic";
 
 export default function HomePage() {
   const allKeywords = [
