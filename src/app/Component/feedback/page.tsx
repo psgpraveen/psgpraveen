@@ -17,7 +17,6 @@ export default function ContactForm() {
   useEffect(() => {
     if (mood !== 'neutral') {
       const t = setTimeout(() => setMood('neutral'), 1500);
-      console.log(focusField);
       return () => clearTimeout(t);
     }
   }, [mood]);
@@ -74,7 +73,7 @@ export default function ContactForm() {
           >
             <ambientLight intensity={0.7} />
             <directionalLight position={[2, 2, 2]} intensity={1} />
-            <AvatarModel num={7} />
+            <AvatarModel num={focusField === 'email' ? 12 : focusField === 'msg' ? 9 : 7} />
             <OrbitControls enableZoom={false} enablePan={false} />
           </Canvas>
         </section>

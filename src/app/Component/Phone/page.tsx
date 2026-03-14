@@ -15,7 +15,7 @@ export default function Phone() {
       <motion.a
         href="tel:+917985942726" target='_blank'
         aria-label="Call us"
-        className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-full lg:lg-4 p-[1rem] shadow-lg"
+        className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-full lg:p-4 p-[1rem] shadow-lg"
         whileHover={{ scale: 1.2, rotate: 15 }}
         whileTap={{ scale: 0.9, rotate: -15 }}
         transition={{ type: 'spring', stiffness: 400, damping: 10 }}

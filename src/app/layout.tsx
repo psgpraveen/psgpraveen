@@ -1,22 +1,12 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import GlobalCanvasBackground from "@/components/GlobalCanvasBackground";
 import { Toaster } from "react-hot-toast";
 import Seo from "@/components/Seo";
 import Script from "next/script";
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-const robotoMono = Roboto_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 // Next.js built‑in metadata
 export const metadata: Metadata = {
@@ -300,7 +290,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
         {/* Enhanced SEO Structured Data Schemas */}
         <Script
